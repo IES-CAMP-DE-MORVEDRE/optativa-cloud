@@ -1,0 +1,62 @@
+site_name: Introducción a la Nube
+use_directory_urls: false
+
+nav:
+  - "Inicio": "index.md"
+  - "UD01. Introducción a la Nube Pública": 
+      - "Introducción a la Nube Pública": "ud01/ud01.md"
+      - "Lanzamiento del Laboratorio": "ud01/practica00.md"
+  - "UD02. Incorporación de una Capa Informática":
+      - "Capa Informática": "ud02/ud02.md"
+      - "Prácticas": "ud02/practica02.md"
+  
+
+theme:
+    language: es
+    name: "material"
+    favicon: "images/cloud-computing.png"
+    palette:
+        - scheme: default
+          primary: indigo
+          accent: "light blue"
+          toggle:
+            icon: material/toggle-switch-off-outline
+            name: Cambiar a modo noche
+        - scheme: slate 
+          primary: indigo
+          accent: "light blue"
+          toggle:
+            icon: material/toggle-switch
+            name: Cambiar a modo día
+    font:
+        text: Roboto
+        code: Roboto Mono
+    logo: "images/cloud-computing.png"
+    features:
+        - header.autohide
+        - navigation.top
+        - navigation.tracking
+        - navigation.footer
+        - navigation.indexes
+        - content.code.annotate
+        - announce.dismiss
+        - toc.follow
+        - content.code.copy
+
+extra_css:
+  - css/extra.css
+
+extra:
+  search:
+    language: "es"
+
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
