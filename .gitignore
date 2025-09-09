@@ -7,3 +7,6 @@
 # Ignore the default location of the built site
 _site/
 .site/
+
+# Ignorar streams de seguridad de Windows
+*.Zone.Identifier
