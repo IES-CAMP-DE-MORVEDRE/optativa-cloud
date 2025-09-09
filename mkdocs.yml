@@ -6,6 +6,7 @@ nav:
   - "UD01. Introducción a la Nube Pública": 
       - "Introducción a la Nube Pública": "ud01/ud01.md"
       - "Lanzamiento del Laboratorio": "ud01/practica00.md"
+      - "La Interfaz de Línea de Comandos": "ud01/practica01.md"
   
 
 theme:

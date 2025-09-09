@@ -1,8 +1,8 @@
-# OPTATIVA-AWS
-Asignatura optativa AWS
+# optativa-aws
+Asignatura optativa **Introducción a la nube pública**
 
 ## Para montar un entorno de prueba local
-Estando situado en el directorio del proyecto, ejecutar:
+Estando situados en el directorio del proyecto, ejecutar:
 
 ```
 docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
