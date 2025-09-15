@@ -9,7 +9,6 @@ En esta práctica vamos a crear en la nube una máquina virtual de Windows Serve
 - La red (VPC) y la subred virtual a la que está conectada la máquina.
 - Un Internet Gateway (puerta de enlace) para salir a Internet desde la red virtual.
 - Una dirección IP Pública para conectarnos desde el exterior.
-- Una dirección IP Elástica (la IP pública, pero estática, para que no cambie al reiniciar la máquina).
 - Un grupo de seguridad (firewall) para controlar los accesos.
 
 
@@ -38,17 +37,17 @@ ___
 
 2.- Para lanzar la instancia EC2 es necesario asignarle una serie de parámetros obligatorios y configurar otros opcionales.
 
-- El nombre del equipo será *W2025*
-- Seleccionamos una imagen (AMI) de *Microsoft Windows Server 2025 Base*.
-- En el tamaño de la máquina seleccionamos un tipo de instancia *t3.medium* (2 CPUS y 4 GiB de RAM)
-- En el par de claves podemos elegir entre crear un nuevo par de claves o utilizar las ya creadas de nuestro laboratorio (*vockey*). Seleccionamos las ya creadas *vockey*.
+- El nombre del equipo será **W2025**
+- Seleccionamos una imagen (AMI) de **Microsoft Windows Server 2025 Base**.
+- En el tamaño de la máquina seleccionamos un tipo de instancia **t3.medium** (2 CPUS y 4 GiB de RAM)
+- En el par de claves podemos elegir entre crear un nuevo par de claves o utilizar las ya creadas de nuestro laboratorio (*vockey*). Seleccionamos las ya creadas **vockey**.
 - En la configuración de red pulsamos en Editar:
     - Dejamos la VPC (la red virtual) predeterminada.
-    - Seleccionamos una subred (por ejemplo la asociada a la zona de disponibilidad 2 cuyo nombre es *us-east-1b* y su dirección de red es *172.13.16.0/20*)
-    - Habilitamos la asignación de una IP Pública para conectarnos desde Internet a esta máquina.
-    - Creamos un grupo de seguridad (reglas de firewall) nuevo y lo llamamos *acceso-remoto* y le ponemos una descripción (*acceso remoto a W2025*)
-    - Como regla de entrada dejamos la que viene por defecto que habilita el *puerto 3389 (RDP)* desde *cualquier lugar* de Internet (0.0.0.0/0)
-- Dejamos las opciones de almacenamiento que nos propone por defecto: 30GiB en un disco *SSD de uso general*.
+    - Seleccionamos una subred (por ejemplo la asociada a la zona de disponibilidad 2 cuyo nombre es **us-east-1b** y su dirección de red es *172.13.16.0/20*)
+    - Habilitamos la **asignación de una IP Pública** para conectarnos desde Internet a esta máquina.
+    - Creamos un grupo de seguridad (reglas de firewall) nuevo y lo llamamos **acceso-remoto** y le ponemos una descripción (*acceso remoto a W2025*)
+    - Como regla de entrada dejamos la que viene por defecto que habilita el **puerto 3389 (RDP)** desde **cualquier lugar** de Internet (0.0.0.0/0)
+- Dejamos las opciones de almacenamiento que nos propone por defecto: 30GiB en un disco **SSD de uso general**.
 - Lanzamos la instancia.
 
 <br>
@@ -99,60 +98,19 @@ El primer paso para poder ver la contraseña es descargarnos el fichero de la cl
 
 6.- En la **consola de AWS** accede al panel de la instancia EC2 que acabamos de lanzar y pulsa sobre *Conectar*. En la pestaña de *Cliente RDP* descarga el archivo RDP y pulsa sobre *Obtener Contraseña*. Para descifrarla te pide la clave privada que acabas de descargar.
 
-Una vez descifrada, ya podemos abrir el fichero RDP descargado e introducir el usuario (*Administrator*) y la contraseña para iniciar sesión.
 
+7.- Una vez descifrada la contraseña, ya podemos abrir el fichero RDP descargado e introducir el usuario (*Administrator*) y la contraseña para iniciar sesión.
 
-<br>
-___
+!!! success "Captura la pantalla"
+    Haz una captura de pantalla en la que se vea la conexión por RDP a la máquina Windows Server 2025 como parte de las prácticas a entregar.
 
-### Acceso por SSH
-
-Vamos a iniciar ahora una sesión al servidor *W2025* desde nuestra máquina local, pero esta vez utilizando el protocolo SSH.
-
-7.- En primer lugar, con la sesión de Escritorio Remoto abierta en la máquina Windows Server realiza las siguientes acciones:
-
-- Habilita en el panel del **Administración del servidor** el **Acceso Remoto por SSH**.
-- En el firewall de Windows (**Windows defender firewall with advanced security** que se encuentra en las **Herramientas Administrativas**) añade una regla de entrada para permitir conexiones del puerto 22 desde cualquier red.
-
-<br>
-
-8.- Ahora, en la **consola de AWS**, configura el **grupo de seguridad** que creamos en el momento de lanzar la instancia (*acceso-remoto*) y edita las *Reglas de entrada* para añadir el protocolo SSH (puerto TCP 22) desde cualquier dirección IPv4.
-
-<br>
-
-9.- Desde el panel de EC2, vemos los detalles de nuestra instancia en ejecución y comprobamos la IP Pública asignada a la instancia.
-
-<br>
-
-Ya podemos desde un terminal lanzar un ssh a la dirección pública asociada a nuestra instancia EC2:
-
-    ssh administrator@54.242.76.151
-
-!!! note "Nota"
-
-    Nos hemos conectado por contraseña, lo cual es una práctica poco recomendada en AWS. Veremos que en las instancias con Linux lo haremos siempre mediante un par de claves.
-
-___
-
-### Asignación IP Elástica
-
-Esa dirección IP pública a la que nos hemos conectado no es fija, de modo que cada vez que se reinicie la instancia (o apaguemos el laboratorio) la dirección puede cambiar. Podemos asignar una IP fija (con un incremento del costo) a nuestra máquina para evitar que esto suceda. Para ello utilizamos las **IP Elásticas** de AWS.
-
-10.- En el panel de recursos de EC2, accede a **Direcciones IP elásticas**:
-
-- **Asigna** (crea) una nueva dirección elástica.
-- Una vez creada, hay que **asociarla a un recurso**. En nuestro caso a la instancia EC2. En Acciones selecciona la opción Dirección IP elástica asociada y elige el id de la instancia *W2025*.
-- Esta acción provocará un cambio inmediato de la dirección IP Pública que teníamos por la nueva IP elástica, obligando a rehacer las conexiones.
-
-<br>
 ___
 
 ### Liberación de recursos
 
-11.- Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
+8.- Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
 
-- Comenzamos liberando la IP elástica. Para ello **desasociamos la IP elástica** y a continuación seleccionamos la opción **Publicar dirección IP elástica**. (Publicar = hacer pública = disponible).
 - Terminamos la instancia. En el panel de EC2, con la instancia seleccionada, pulsamos sobre la Acción **Terminar (eliminar) instancia**. Nos informa que el volumen EBS asociado también se eliminará.
 - Por último, eliminamos el grupo de seguridad *acceso-remoto*.
 
-Recuerda finalizar el laboratorio.
+Recuerda finalizar el laboratorio cuando acabes con las prácticas.

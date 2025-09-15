@@ -10,6 +10,7 @@ nav:
   - "UD02. Capa de Cómputo": 
       - "Capa de Cómputo": "ud02/ud02.md"
       - "Creación de una Máquina Virtual": "ud02/practica1.md"
+      - "Prácticas a entregar": "ud02/practica2.md"
   
 
 theme:
