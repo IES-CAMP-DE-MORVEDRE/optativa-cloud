@@ -7,6 +7,9 @@ nav:
       - "Introducción a la Nube Pública": "ud01/ud01.md"
       - "Lanzamiento del Laboratorio": "ud01/practica00.md"
       - "La Interfaz de Línea de Comandos": "ud01/practica01.md"
+  - "UD02. Capa de Cómputo": 
+      - "Capa de Cómputo": "ud02/ud02.md"
+      - "Creación de una Máquina Virtual": "ud02/practica1.md"
   
 
 theme:
