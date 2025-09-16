@@ -31,6 +31,7 @@ Lo primero es crear una VPC con su direccionamiento (por ejemplo, 192.168.0.0/16
 ![](../images/ud03/practica2/001.png)
 
 ![img](../images/ud03/practica2/002.png)
+
 A continuación, una vez creada la VPC, desde la opción de Subredes, crearemos la subred  asociándola a la VPC que acabamos de crear y dándole un nombre y un rango de direcciones IPv4, que debe estar dentro del rango de la VPC. Por ejemplo, podemos asignar el rango 192.168.0.0/24:
 
 ![](../images/ud03/practica2/003.png)
@@ -92,3 +93,4 @@ Una vez añadida, comprobamos que aparece la nueva ruta en la lista de rutas de 
 ![](../images/ud03/practica2/019.png)
 
 Una vez hecho esto, ahora sí que podremos conectarnos por ssh a cualquier instancia EC2 lanzada en la subred que hemos creado (siempre que la EC2 tenga asignada una dirección IP pública, y de que el grupo de seguridad asociado, concepto del que hablaremos más adelante, permita tráfico entrante al puerto de ssh).
+
