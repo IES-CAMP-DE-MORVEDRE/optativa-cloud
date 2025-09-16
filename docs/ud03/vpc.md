@@ -49,7 +49,7 @@ Diseñar una arquitectura de red sólida en AWS no es una opción, sino un requi
 
 Haciendo usos de esos servicios se puede mostrar una solución sencilla:
 
-![1757673941069](image/vpc/1757673941069.png)
+![](../images/ud3/vpc1.png)
 
 ## Redes en AWS¶
 
