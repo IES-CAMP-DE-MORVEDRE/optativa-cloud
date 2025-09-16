@@ -33,15 +33,15 @@ Ahora que ya hemos practicado con el entorno gráfico, vamos a comenzar a utiliz
 
 En esta práctica vamos a hacer un script (en Windows o Linux) para crear una máquina virtual con los valores por defecto mediante el [comando `aws ec2 run-instances`](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html) .
 
-!!! note
+!!! note "Nota"
     Necesitamos especificar algunos parámetros mínimos, entre ellos el **identificador de la AMI** a utilizar. Existen herrameintas y comandos para conocer las IDs de las AMIs, pero nosoros accederemos a la consola gráfica y al intentar crear una instancia veremos la ID de la AMI que nos interesa para poder introducurla en el comando.
 
 Crearemos un fichero de script con el siguiente comando:
 
 === "Windows"
     ```
-    aws ec2 run-intances `
-    --image-id ami-04b4f1a9cf54c11d0 `
+    aws ec2 run-instances `
+    --image-id ami-0b09ffb6d8b58ca91 `
     --count 1 `
     --instance-type m1.small `
     --key-name vockey `
@@ -50,13 +50,22 @@ Crearemos un fichero de script con el siguiente comando:
 
 === "Linux"
     ```
-    aws ec2 run-intances \
-    --image-id ami-04b4f1a9cf54c11d0 \
+    aws ec2 run-instances \
+    --image-id ami-0b09ffb6d8b58ca91 \
     --count 1 \
     --instance-type m1.small \
     --key-name vockey \
     --region us-east-1
     ```
+
+Una vez guardado, damos permiso de ejecución (en Linux) y lo ejecutamos anteponiendo `./` al nombre del script (Windows y Linux).
+
+Al ejecutarlo, el comando nos devuelve una cadena *json* con información relativa a la instancia creada, pero no nos aparece ni la IP Pública ni el nombre DNS Público asignados.
+
+Para poder ver dicha información y así poder conectarnos mediante ssh, ejecutamos el comando `aws describe-instances` y filtramos la información de salida para que nos aparezca la palabra `PublicIpAddress`.
+
+!!! success "Captura las pantallas"
+    Captura las pantallas necesarias en la que se vea el comando de creación de la instancia y la conexión por ssh a la máquina Linux.
 
 
 ## Práctica 4
