@@ -11,6 +11,10 @@ nav:
       - "Capa de Cómputo": "ud02/ud02.md"
       - "Creación de una Máquina Virtual": "ud02/practica1.md"
       - "Prácticas a entregar": "ud02/practica2.md"
+  - "UD03. Creación de un entorno de red": 
+      - "Creación de un entorno de red": "ud03/vpc.md"
+      - "Creación de una VPC": "ud03/practica00.md"
+      - "VPC independiente de los elementos de la red": "ud03/practica01.md"
   
 
 theme:
