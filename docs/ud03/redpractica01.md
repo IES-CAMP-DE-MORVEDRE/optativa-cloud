@@ -20,7 +20,8 @@ Vamos a crear una VPC con las siguientes direcciones
 * red 192.168.0.0/16
 * subred 192.168.0.0/24
 
-Esta tarea la documentarás paso a paso, para comprobar que el resultado es el esperado al final entregarás el resultado de acceder por ssh a las instancias y comprobar su dirección privada.
+!!! success "Captura las pantallas"
+    Esta tarea la documentarás paso a paso, para comprobar que el resultado es el esperado al final entregarás el resultado de acceder por ssh a las instancias y comprobar su dirección privada.
 
 ## Creación independiente de los elementos de red desde la consola de AWS
 

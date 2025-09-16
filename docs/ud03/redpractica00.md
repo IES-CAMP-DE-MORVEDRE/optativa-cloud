@@ -37,7 +37,9 @@ Crea una segunda ec2, asignándole el grupo de seguridad anterior, desplegándol
 
 Accede por ssh a las instancias y comprueba sus	direcciones ip	privadas.
 
-Entrega captura de pantalla resultado de hacer un "ip a" una vez estás conectado por ssh en cada una de las instancias
+!!! success "Captura las pantallas"
+    Entrega captura de pantalla resultado de hacer un "ip a" una vez estás conectado por ssh en cada una de las instancias.
+
 
 ### Creación simultánea de los elementos de red desde la consola de AWS
 
