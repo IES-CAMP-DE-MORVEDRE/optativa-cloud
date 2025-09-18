@@ -7,11 +7,11 @@ Una VPC se define a nivel de región, y puede abarcar una o más zonas de dispon
 
 En el ejemplo siguiente se muestra  una VPC dentro de una región con tres zonas de disponibilidad. En cada una de ellas hay definida una subred, en las que se pueden lanzar instancias EC2 de manera que podamos tener un servicio replicado (o diferentes servicios) en diferentes zonas geográficas:
 
-![Figura 1](../images/ud03/practica1/t1vpc1.png)
+![Figura 1](../images/ud03/practica0/t1vpc1.png)
 
 Existen diferentes formas para crear una VPC y sus elementos, que veremos a continuación.
 
-## Objetivo de la práctica 1
+## Objetivo de la práctica
 
 En esta práctica vamos a realizar la creación simultánea de los elementos de red desde la consola de AWS.
 
@@ -45,46 +45,46 @@ Accede por ssh a las instancias y comprueba sus	direcciones ip	privadas.
 
 Ahora que ya hemos comprobado que podemos utilizar instancias dentro del espacio de Amazon, el siguiente paso es crear un ’trozo’ de nube y ser conscientes del direccionamiento que podemos emplear dentro del espacio que AWS nos da. Podemos acceder al servicio VPC buscándolo en la barra superior de la consola de AWS, una vez hemos arrancado el Learner Lab y accedido a la consola:
 
-![Figura 2](../images/ud03/practica1/t1vpc2.png)
+![Figura 2](../images/ud03/practica0/t1vpc2.png)
 
-![Figura 3](../images/ud03/practica1/t1vpc3.png)
+![Figura 3](../images/ud03/practica0/t1vpc3.png)
 
 Lo primero será utilizar la creación de subredes en el mismo momento que se crea una VPC (opción VPC y más). Seleccionaremos el servicio VPC, con  direccionamiento 172.16.0.0/16, y dentro de la VPC  crearemos  una  única subred pública con direccionamiento 172.16.0.0/20:
 
-![Figura 4](../images/ud03/practica1/t1vpc4.png)
+![Figura 4](../images/ud03/practica0/t1vpc4.png)
 
 En este caso estamos utilizando una única zona de disponibilidad con una subred pública, concretamente la zona con nombre us-east-1a en la región del Norte de Virginia (us-east-1):
 
-![Figura 5](../images/ud03/practica1/t1vpc5.png)
+![Figura 5](../images/ud03/practica0/t1vpc5.png)
 
 En este punto no vamos a seleccionar Gateways NAT ni puntos de enlace de la VPC, que son conceptos que veremos más adelante.
 
-![Figura 6](../images/ud03/practica1/t1vpc6.png)
+![Figura 6](../images/ud03/practica0/t1vpc6.png)
 
  Una vez pulsemos sobre el botón de Crear VPC, podremos ir viendo los elementos que se van creando, en función de las opciones que se elijan:
 
-![Figura 7](../images/ud03/practica1/t1vpc7.png)
+![Figura 7](../images/ud03/practica0/t1vpc7.png)
 
 Una vez creada la VPC, es interesante seleccionar la pestaña de Mapa de recursos que nos permite comprobar de una manera visual los elementos creados y cómo se relacionan entre ellos:
 
-![Figura 8](../images/ud03/practica1/t1vpc8.png)
+![Figura 8](../images/ud03/practica0/t1vpc8.png)
 
 En el menú lateral izquierdo del Panel de VPC, tenemos diferentes opciones para trabajar con los diferentes  elementos que pueden estar presentes en una VPC. Podemos mostrar información sobre los elementos creados:
 
 La VPC  :
 
-![Figura 9](../images/ud03/practica1/t1vpc9.png)
+![Figura 9](../images/ud03/practica0/t1vpc9.png)
 
 La subred :
 
-![Figura 10](../images/ud03/practica1/t1vpc10.png)
+![Figura 10](../images/ud03/practica0/t1vpc10.png)
 
 Es importante fijarnos en el identificador que se genera para cada recurso, porque muchas veces creamos elementos y les perdemos la trazabilidad. Además, para utilizar la CLI (Command Line Interface), necesitaremos el identificador de cada servicio. Una vez creada la arquitectura  básica de red, si queremos lanzar una instancia EC2 en ella, habrá que editar la configuración de red y seleccionar la VPC y la subred recién creadas en el momento de su lanzamiento:
 
-![Figura 11](../images/ud03/practica1/t1vpc11.png)
+![Figura 11](../images/ud03/practica0/t1vpc11.png)
 
-![Figura 12](../images/ud03/practica1/t1vpc12.png)
+![Figura 12](../images/ud03/practica0/t1vpc12.png)
 
 Con todo esto la arquitectura finalmente creada es la que se muestra a continuación:
 
-![Figura 13](../images/ud03/practica1/t1vpc13.png)
+![Figura 13](../images/ud03/practica0/t1vpc13.png)

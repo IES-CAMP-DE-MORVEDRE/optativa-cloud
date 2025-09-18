@@ -1,4 +1,4 @@
-﻿## Objetivo de la práctica 3
+﻿## Objetivo de la práctica
 
 En esta tarea aprenderemos a crear subredes privadas y a configurar diferentes recursos de red de manera que se pueda acceder a Internet desde una instancia desplegada en una subred privada. También trataremos diferentes aspectos de seguridad para controlar el tráfico de red, tanto a nivel de instancias como a nivel  de  subred.  En  concreto, utilizaremos  los  siguientes  servicios  y  recursos  relacionados  con  la  parte  de  redes de AWS:
 
