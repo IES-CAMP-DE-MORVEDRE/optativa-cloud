@@ -15,6 +15,7 @@ nav:
       - "Creación de un entorno de red": "ud03/vpc.md"
       - "Creación de una VPC": "ud03/redpractica00.md"
       - "VPC independiente de los elementos de la red": "ud03/redpractica01.md"
+      - "Arquitectura dos capas": "ud03/redpractica03.md"
 
 theme:
     language: es
