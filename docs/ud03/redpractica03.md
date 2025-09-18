@@ -33,7 +33,7 @@ El objetivo inicial entonces en cuanto a la parte de red, es tener una VPC, una 
 - Conéctate con ssh a la instancia de la subred pública, y realiza una prueba de conexión al servidor de base de datos, utilizando para ello la aplicación cliente mysql (que tendrás que instalar previamente).
 
 !!! success "Para entregar"  
-- **Adjunta   a  la  tarea   un   documento  pdf   con   las   siguientes  capturas**:  mapa  de  la  VPC, configuración  de  las reglas de entrada de los grupos de seguridad de las dos instancias, conexión al servidor Apache desde un navegador, y conexión al servicio de base de datos desde la instancia del servidor web.
+    - Adjunta   a  la  tarea   un   documento  pdf   con   las   siguientes  capturas:  mapa  de  la  VPC, configuración  de  las reglas de entrada  de los grupos de seguridad de las dos instancias, conexión al servidor Apache desde un navegador, y conexión al servicio de base de datos desde la instancia del servidor web.
 
   **Nota: No es necesario utilizar ACLs de red en esta tarea, el tráfico de red se controlará únicamente con los grupos de seguridad asociados a las instancias, y por el hecho de que el servidor de base de datos residirá en una subred privada.**
 
@@ -277,4 +277,5 @@ Sin embargo, si nos conectamos a la primera instancia por ssh y hacemos un ping 
 ![](../images/ud03/practica3/050.png)
 
 En definitiva, combinando reglas encadenadas de grupos de seguridad y NACLs, es posible controlar de manera exhaustiva todo el tráfico que entra y sale en nuestra VPC y los recursos desplegados en ella.
+
 
