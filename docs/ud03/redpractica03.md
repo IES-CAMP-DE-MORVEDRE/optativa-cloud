@@ -24,19 +24,20 @@ Aunque es posible desplegar todos los recursos de red al crear la VPC, vamos a c
 
 El objetivo inicial entonces en cuanto a la parte de red, es tener una VPC, una subred pública, un Gateway de Internet (IGW) y una tabla de enrutamiento, que vamos creando desde la opción de creación de VPC como ya se vio
 
-!!! success "Para entregar"
-    - La tarea consiste en realizar un despliegue de una típica **arquitectura de dos capas**, donde en la parte pública tendremos un servidor web, y en la privada un servidor de base de datos:
-
+##### Qué tienes que hacer en esta tarea
+- La tarea consiste en realizar un despliegue de una típica **arquitectura de dos capas**, donde en la parte pública tendremos un servidor web, y en la privada un servidor de base de datos:
 - Crea  una  VPC  con  dos  subredes,  una  pública  y  otra  privada, puedes poner el mismo direccionamiento de red que tienes en esta tarea guiada o puedes escoger otro. Para que desde la subred privada se pueda acceder al exterior deberás utilizar un NAT Gateway.
 - En la subred pública, lanza una instancia EC2 e instala un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.
 - En la subred privada, lanza otra instancia EC2 e instala un servicio de MySQL. Para acceder a esta instancia, tendrás que acceder primero a la instancia pública (utiliza para ello el agente ssh).
 - Los grupos de seguridad asociados a las instancias deben permitir sólo el tráfico de entrada  necesario, utilizando una regla encadenada en el caso del grupo de seguridad asociado a la instancia de base de datos,  de  manera  que  sólo  acepte  tráfico  entrante  del protocolo adecuado desde la instancia del servidor web.
 - Conéctate con ssh a la instancia de la subred pública, y realiza una prueba de conexión al servidor de base de datos, utilizando para ello la aplicación cliente mysql (que tendrás que instalar previamente).
+
+!!! success "Para entregar"  
 - **Adjunta   a  la  tarea   un   documento  pdf   con   las   siguientes  capturas**:  mapa  de  la  VPC, configuración  de  las reglas de entrada de los grupos de seguridad de las dos instancias, conexión al servidor Apache desde un navegador, y conexión al servicio de base de datos desde la instancia del servidor web.
 
   **Nota: No es necesario utilizar ACLs de red en esta tarea, el tráfico de red se controlará únicamente con los grupos de seguridad asociados a las instancias, y por el hecho de que el servidor de base de datos residirá en una subred privada.**
 
-Veamos ahora el ejemplo de cómo hacer esto
+##### Veamos ahora el ejemplo de cómo hacer esto
 
 #### VPC con su direccionamiento:
 
@@ -276,3 +277,4 @@ Sin embargo, si nos conectamos a la primera instancia por ssh y hacemos un ping 
 ![](../images/ud03/practica3/050.png)
 
 En definitiva, combinando reglas encadenadas de grupos de seguridad y NACLs, es posible controlar de manera exhaustiva todo el tráfico que entra y sale en nuestra VPC y los recursos desplegados en ella.
+
