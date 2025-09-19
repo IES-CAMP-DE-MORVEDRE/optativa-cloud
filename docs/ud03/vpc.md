@@ -51,7 +51,7 @@ Haciendo usos de esos servicios se puede mostrar una solución sencilla:
 
 ![](../images/ud3/vpc1.png)
 
-## Redes en AWS¶
+## Redes en AWS
 
 Suponemos que los conceptos de red, subred y dirección IP y el modelo de la OSI están claros.
 
@@ -59,7 +59,7 @@ Dentro de AWS se utiliza el método CIDR para describir redes, por ejemplo, 192
 
 Muchos de los conceptos de redes físicas son válidos para las redes  *cloud*, con la ventaja que en la nube nos ahorraremos gran parte de la complejidad.
 
-## Amazon VPC¶
+## Amazon VPC
 
 AWS utiliza las VPC (*AmazonVirtual Private Cloud* ) como redes privadas virtuales donde están conectados todos los recursos con los que trabajamos, de manera que el acceso queda aislado de otros usuarios. Dicho de otro modo, Amazon VPC permite lanzar recursos de AWS en la red virtual que definamos. Esta red virtual se asemeja en gran medida a una red tradicional que ejecutaríamos en nuestro propio centro de datos, con los beneficios de utilizar la infraestructura escalable de AWS, pudiendo crear una VPC que abarque varias AZ.
 
