@@ -13,9 +13,9 @@ nav:
       - "Prácticas a entregar": "ud02/practica2.md"
   - "UD03. Creación de un entorno de red": 
       - "Creación de un entorno de red": "ud03/vpc.md"
-      - "Creación de una VPC": "ud03/redpractica00.md"
-      - "VPC independiente de los elementos de la red": "ud03/redpractica01.md"
-      - "Redes virtuales": "ud03/redpractica02.md"
+      - "Práctica 0. Creación de una VPC automática": "ud03/redpractica00.md"
+      - "Práctica 1. Creación de una VPC manual": "ud03/redpractica01.md"
+      - "Práctica 2. Creación de una VPC con 2 subredes": "ud03/redpractica02.md"
       - "Arquitectura dos capas": "ud03/redpractica03.md"
 
 theme:
