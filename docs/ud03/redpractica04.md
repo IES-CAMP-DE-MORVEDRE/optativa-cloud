@@ -19,7 +19,7 @@ En esta práctica vamos a crear la misma VPC que en ejercicios anteriores pero u
 
 Tienes que descargar y modificar el script
 
-[script_UD03](::/script_UD03)
+[script Creación VPC](script_UD03.sh)
 
 para que cree una VPC con la dirección 192.168.0.0/16 y una subred dentro de esta con la dirección 192.168.0.0/24, luego ejecutas el script. Para poder ejecutarlo tendrás que autenticarte primero con la información
 de la sesión actual de tu laboratorio. Comprueba que se crean los elementos indicados anteriormente.
