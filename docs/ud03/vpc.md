@@ -29,11 +29,12 @@ Por otro lado, servicios como AWS Global Accelerator optimizan la velocidad de a
 
 Diseñar una arquitectura de red sólida en AWS no es una opción, sino un requisito. Esta arquitectura constituye el cimiento que permite que las soluciones cloud sean escalables, seguras y conectadas. De su planificación depende en gran medida la disponibilidad del servicio, la protección de los datos y la agilidad de la organización para adaptarse a nuevos desafíos.
 
+
 ## Los servicios que ofrece AWS para gestionar las redes son:
 
 *Amazon Virtual Private Cloud* (**Amazon VPC**): permite aprovisionar secciones aisladas de forma lógica de la nube de AWS.
 
-*Elastic Load Balancing*: distribuye automáticamente el tráfico entrante de las aplicaciones en varios destinos,tales como instancias de Amazon EC2, contenedores, direcciones IP y funciones Lambda.
+*Elastic Load Balancing*: distribuye automáticamente el tráfico entrante de las aplicaciones en varios destinos, tales como instancias de Amazon EC2, contenedores, direcciones IP y funciones Lambda.
 
 *Amazon	CloudFront*: servicio rápido de red de entrega de contenido (CDN) que suministra datos, videos, aplicaciones y APIs de manera segura a clientes de	todo el mundo, con baja latencia y altas velocidades de transferencia.
 
@@ -51,15 +52,15 @@ Haciendo usos de esos servicios se puede mostrar una solución sencilla:
 
 ![](../images/ud3/vpc1.png)
 
-## Redes en AWS¶
+## Redes en AWS
 
 Suponemos que los conceptos de red, subred y dirección IP y el modelo de la OSI están claros.
 
-Dentro de AWS se utiliza el método CIDR para describir redes, por ejemplo, 192.0.2.0/24 (los primeros 24 bits son estáticos, y los últimos 8 flexibles). Cabe destacar que AWS reserva las primeras cuatro direcciones IP y la última dirección IP de cada subred para fines de redes internas.Por ejemplo, una subred /28 tendría 16 direcciones IP disponibles. De ahí hay que restar las 5 IP reservadas por AWS para obtener 11 direcciones IP para nuestro uso dentro de la subred.
+Dentro de AWS se utiliza el método CIDR para describir redes, por ejemplo, 192.0.2.0/24 (los primeros 24 bits son estáticos, y los últimos 8 flexibles). Cabe destacar que AWS reserva las primeras cuatro direcciones IP y la última dirección IP de cada subred para fines de redes internas. Por ejemplo, una subred /28 tendría 16 direcciones IP disponibles. De ahí hay que restar las 5 IP reservadas por AWS para obtener 11 direcciones IP para nuestro uso dentro de la subred.
 
 Muchos de los conceptos de redes físicas son válidos para las redes  *cloud*, con la ventaja que en la nube nos ahorraremos gran parte de la complejidad.
 
-## Amazon VPC¶
+## Amazon VPC
 
 AWS utiliza las VPC (*AmazonVirtual Private Cloud* ) como redes privadas virtuales donde están conectados todos los recursos con los que trabajamos, de manera que el acceso queda aislado de otros usuarios. Dicho de otro modo, Amazon VPC permite lanzar recursos de AWS en la red virtual que definamos. Esta red virtual se asemeja en gran medida a una red tradicional que ejecutaríamos en nuestro propio centro de datos, con los beneficios de utilizar la infraestructura escalable de AWS, pudiendo crear una VPC que abarque varias AZ.
 
@@ -79,6 +80,6 @@ Una tabla de enrutamientocontiene un conjunto de reglas, llamadas rutas, que se
 
 #### Grupo de seguridad
 
-Las VPC utilizan un grupo de seguridad**,** que actúa como un *firewall* virtual. Cuando se lanza una instancia, se asocia uno o varios grupos de seguridad a ella. Los grupos de seguridad tienen reglas que controlan el tráfico de entrada y de salida de las instancias, las	cuales podemos modificar. Los grupos de seguridad predeterminados deniegan todo el tráfico de entrada y permiten todo el tráfico de salida.
+Las VPC utilizan un grupo de seguridad que actúa como un *firewall* virtual. Cuando se lanza una instancia, se asocia uno o varios grupos de seguridad a ella. Los grupos de seguridad tienen reglas que controlan el tráfico de entrada y de salida de las instancias, las	cuales podemos modificar. Los grupos de seguridad predeterminados deniegan todo el tráfico de entrada y permiten todo el tráfico de salida.
 
 A continuación veremos algunas prácticas de creación de VPC que nos ayudarán a entender y afianzar estos conceptos.

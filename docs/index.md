@@ -8,7 +8,7 @@ permalink: /
 
 # Introducción a la nube
 
-Módulo optativo de Introducción al Cloud Computing de CFGS ASIR y DAW
+Módulo optativo de Introducción al Cloud Computing de CFGS ASIR, DAM y DAW
 
 [Iniciar ahora](ud01/ud01.html){ .md-button .md-button--primary }
 [Ver en GitHub](https://github.com/IES-CAMP-DE-MORVEDRE/optativa-cloud){ .md-button }
