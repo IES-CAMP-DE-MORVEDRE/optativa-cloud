@@ -38,7 +38,7 @@ En esta práctica vamos a hacer un script (en Windows o Linux) para crear una m�
 !!! note "Nota"
     Necesitamos especificar algunos parámetros mínimos, entre ellos el **identificador de la AMI** a utilizar. Existen herramientas y comandos para conocer las IDs de las AMIs, pero nosoros accederemos a la consola gráfica y, al intentar crear una instancia, veremos la ID de la AMI que nos interesa para poder introducirla en el comando.
 
-Recuerda que como usuario de aws academy debes utilizar la región **us-east-1** que te permite crear los recuros que se piden en este curso.
+    Recuerda que como usuario de aws academy debes utilizar la región**us-east-1** que te permite crear los recursos que se piden en este curso.
 
 Crearemos un fichero de script con el siguiente comando:
 
