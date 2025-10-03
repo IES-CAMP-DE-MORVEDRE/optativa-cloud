@@ -26,7 +26,7 @@ AWS ofrece varios servicios gestionados de Bases de Datos. Los más populares so
 
 ## Esquema en AWS
 
-<img src="./images/ud05/BBDD.drawio.png">
+<img src="../images/ud05/BBDD.drawio.png">
 
 ## Práctica a Realizar
 
@@ -64,7 +64,7 @@ Comprobamos también que se nos ha asociado el nuevo grupo de seguridad que hemo
 
 <br>
 
-<img src="./images/ud05/BBDD_01.png">
+<img src="../images/ud05/BBDD_01.png">
 <br>
 ___
 
@@ -77,7 +77,7 @@ ___
 
 <br>
 
-<img src="./images/ud05/BBDD_02.png">
+<img src="../images/ud05/BBDD_02.png">
 <br>
 ___
 
@@ -139,4 +139,4 @@ ___
 !!! warning "Atención"
     Si detenemos un servidor de BBDD (sin eliminarlo), AWS lo iniciará automáticamente a los 7 días (si no lo hemos levantado nosotros de manera manual antes). Esto es peligroso, pues si olvidamos eliminar un recurso de BBDD que no utilizamos, se pondrá en marcha automáticamente a los 7 días de haberlo detenido, con el consiguiente consumo de crédito.
 
-<img src="./images/ud05/BBDD_03.png" width=400>
+<img src="../images/ud05/BBDD_03.png" width=400>
