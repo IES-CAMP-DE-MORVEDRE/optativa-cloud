@@ -124,7 +124,7 @@ exit;
 <br>
 
 !!! success "Captura las pantallas"
-    Captura la pantalla de establecimiento de conexión a la base de datos
+    Captura la pantalla de establecimiento de conexión a la base de datos  
     Captura la pantalla resultado de hacer la select de clientes
 
 ---
