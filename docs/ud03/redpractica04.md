@@ -21,7 +21,7 @@ Tienes que descargar y modificar el script
 
 [script Creación VPC](script_UD03.sh)
 
-para que cree una VPC con la dirección 192.168.0.0/16 y una subred dentro de esta con la dirección 192.168.0.0/24, luego ejecutas el script. Para poder ejecutarlo tendrás que autenticarte primero con la información
+para que cree una VPC con la dirección 192.168.0.0/16 y una subred dentro de esta con la dirección 192.168.3.0/24, luego ejecutas el script. Para poder ejecutarlo tendrás que autenticarte primero con la información
 de la sesión actual de tu laboratorio. Comprueba que se crean los elementos indicados anteriormente.
 
 Ahora crea una instancia en otra subred de nombre “subred-tunombre” y haz un ping de una máquina a otra.
