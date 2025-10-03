@@ -17,6 +17,9 @@ nav:
       - "Práctica 1. Creación de una VPC manual": "ud03/redpractica01.md"
       - "Práctica 2. Creación de una VPC con 2 subredes": "ud03/redpractica02.md"
       - "Práctica 3. Creación de una VPC con CLI": "ud03/redpractica04.md"
+  - "UD05. "Incorporación de una capa de base de datos":
+      - "Práctica 1. Creación de una Base de datos Gestionada con acceso público" : "ud05/bdpractica01.md"
+  
 
 theme:
     language: es
