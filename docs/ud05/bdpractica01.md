@@ -98,16 +98,7 @@ ___
 
 7.- Vamos a crear una base de datos con una tabla. Lo vamos a hacer mediante un script de sentencias sql. Para ello comenzamos con la descarga del fichero de creación de la base de datos.
 
-=== "Linux"
-
-    ``   wget https://raw.githubusercontent.com/jrpellicer/awsasir/refs/heads/main/docs/asir.sql   ``
-
-=== "Windows"
-
     [Descarga fichero sql](./asir.sql)
-
-<br>
-___
 
 8.- Ejecutamos las instrucciones SQL que hay en el contenido del fichero descargado. Basta con redireccionar la entrada del comando `mysql` con el fichero descargado de nombre `asir.sql`.
 
