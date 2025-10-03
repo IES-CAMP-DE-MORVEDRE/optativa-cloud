@@ -56,7 +56,12 @@ Haciendo usos de esos servicios se puede mostrar una solución sencilla:
 
 Suponemos que los conceptos de red, subred y dirección IP y el modelo de la OSI están claros.
 
-Dentro de AWS se utiliza el método CIDR para describir redes, por ejemplo, 192.0.2.0/24 (los primeros 24 bits son estáticos, y los últimos 8 flexibles). Cabe destacar que AWS reserva las primeras cuatro direcciones IP y la última dirección IP de cada subred para fines de redes internas. Por ejemplo, una subred /28 tendría 16 direcciones IP disponibles. De ahí hay que restar las 5 IP reservadas por AWS para obtener 11 direcciones IP para nuestro uso dentro de la subred.
+Dentro de AWS se utiliza el método CIDR para describir redes, por ejemplo, `192.0.2.0/24` (los primeros 24 bits son estáticos, y los últimos 8 flexibles). 
+
+!!! note "Nota"
+    Cabe destacar que AWS reserva las primeras cuatro direcciones IP y la última dirección IP de cada subred para fines de redes internas. 
+
+Por ejemplo, una subred `/28` tendría 16 direcciones IP disponibles. De ahí hay que restar las 5 IP reservadas por AWS, obteniendo 11 direcciones IP para nuestro uso dentro de la subred.
 
 Muchos de los conceptos de redes físicas son válidos para las redes  *cloud*, con la ventaja que en la nube nos ahorraremos gran parte de la complejidad.
 
@@ -68,11 +73,17 @@ Al definir la red virtual podemos seleccionar nuestro propio intervalo de direcc
 
 Sin entrar en mayor detalle, vamos a repasar algunos de los componentes más importantes:
 
-#### *gateway de Internet* (IGW)
+#### Gateway de Internet (IGW)
 
-Un *gateway de Internet* (IGW) es un componente de la VPC que permite la comunicación entre	instancias de la VPC e Internet. Un caso específico es un Gateway NAT, que se utiliza para proporcionar conectividad a Internet a instancias EC2 en las subredes privadas.
+Un *gateway de Internet* (Internet Gateway, IGW) es un componente de la VPC que permite la comunicación entre instancias de la VPC e Internet. 
 
-Después	de crear una VPC, podemos agregar subredes. Cada **subred** está ubicada por completo dentro de una zona de disponibilidad y no puede abarcar otras zonas. Si el tráfico de una subred se direcciona a una gateway de Internet, la subred recibe el nombre de subred	pública. Si una subred no dispone de una ruta al *gateway* de Internet, recibe el nombre de subred privada. Para que las subredes	privadas puedan conectarse a Internet dirigiendo el tráfico al *gateway* NAT hemos de configurar las tablas enrutamiento.
+Un caso específico es un *Gateway NAT*(o Nat Gateway), que se utiliza para proporcionar conectividad a Internet a instancias EC2 en las subredes privadas.
+
+Después	de crear una VPC, podemos agregar subredes. Cada **subred** está ubicada por completo dentro de una **zona de disponibilidad** y no puede abarcar otras zonas. 
+
+Si el tráfico de una subred se direcciona a un *Internet Gateway*, la subred recibe el nombre de **subred	pública**. Si una subred no dispone de una ruta al *Internet Gateway*, recibe el nombre de **subred privada**.
+
+Para que las subredes privadas puedan conectarse a Internet dirigiendo el tráfico al *NAT Gateway* hemos de configurar las tablas enrutamiento.
 
 #### Tabla de enrutamiento
 
@@ -80,6 +91,11 @@ Una tabla de enrutamientocontiene un conjunto de reglas, llamadas rutas, que se
 
 #### Grupo de seguridad
 
-Las VPC utilizan un grupo de seguridad que actúa como un *firewall* virtual. Cuando se lanza una instancia, se asocia uno o varios grupos de seguridad a ella. Los grupos de seguridad tienen reglas que controlan el tráfico de entrada y de salida de las instancias, las	cuales podemos modificar. Los grupos de seguridad predeterminados deniegan todo el tráfico de entrada y permiten todo el tráfico de salida.
+Las VPC utilizan un *grupo de seguridad* que actúa como un *firewall* virtual.
+
+Cuando se lanza una instancia, se asocia uno o varios grupos de seguridad a ella. Los grupos de seguridad tienen reglas que controlan el tráfico de entrada y de salida de las instancias, las	cuales podemos modificar. 
+
+!!! warning "Atención"
+    Los grupos de seguridad predeterminados deniegan todo el tráfico de entrada y permiten todo el tráfico de salida.
 
 A continuación veremos algunas prácticas de creación de VPC que nos ayudarán a entender y afianzar estos conceptos.
