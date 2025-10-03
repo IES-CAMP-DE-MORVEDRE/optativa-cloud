@@ -43,10 +43,24 @@ En esta práctica vamos a hacer un script (en Windows o Linux) para crear una m�
 Crearemos un fichero de script con el siguiente comando:
 
 === "Windows"
-    ``    aws ec2 run-instances `     --image-id ami-0b09ffb6d8b58ca91 `     --count 1 `     --instance-type m1.small `     --key-name vockey `     --region us-east-1    ``
+    ```    
+    aws ec2 run-instances `
+    --image-id ami-0b09ffb6d8b58ca91 `
+    --count 1 `     
+    --instance-type m1.small `     
+    --key-name vockey `     
+    --region us-east-1
+    ```
 
 === "Linux"
-    ``    aws ec2 run-instances \     --image-id ami-0b09ffb6d8b58ca91 \     --count 1 \     --instance-type m1.small \     --key-name vockey \     --region us-east-1    ``
+    ```
+    aws ec2 run-instances \
+    --image-id ami-0b09ffb6d8b58ca91 \
+    --count 1 \
+    --instance-type m1.small \
+    --key-name vockey \
+    --region us-east-1    
+    ```
 
 Una vez guardado, damos permiso de ejecución (en Linux) y lo ejecutamos anteponiendo `./` al nombre del script (en Windows y Linux).
 

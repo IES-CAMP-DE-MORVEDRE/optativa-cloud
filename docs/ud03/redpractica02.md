@@ -1,20 +1,12 @@
 
 
-# Redes Virtuales
+# Creación de una VPC con 2 subredes
 
-## Objetivo del Proyecto
+## Objetivo de la Práctica
 
-En la práctica de creación de la Máquina Virtual hemos visto que al crear una máquina en AWS hemos utilizado una serie de recursos asociados a la red en la que se encuentra la máquina:
+En esta práctica vamos a implementar un esquema en el que tendremos una red virtual con dos subredes (*subred-publica* y *subred-privada*). 
 
-- La red virtual (VPC) de la infraestructura que estamos utilizando.
-- La subred dentro de la VPC a la que está conectada la instancia.
-- Un Internet Gateway.
-- Una tabla de enrutamiento asociada a la subred.
-- Un grupo de seguridad que ejerce de cortafuegos.
-- Una dirección IP pública para conectarnos desde el exterior.
-- Una IP elástica asociada a esa IP Pública para que sea siempre fija.
-
-En esta práctica vamos a crear de manera manual todos estos recursos para poder configurarlos según nuestras necesidades. Vamos a implementar un esquema en el que tendremos una red virtual con dos subredes (*subred-publica* y *subred-privada*). En cada una de ellas crearemos una máquina virtual Ubuntu:
+En cada una de esas subreeds crearemos una máquina virtual Ubuntu:
 
 - La primera será accesible desde el exterior de la red (desde Internet) y para ello crearemos un **grupo de seguridad** en el que habilitaremos el puerto 22 (ssh) y el 80 (http) para que puedan entrar desde cualquier dirección. Además necesitaremos una **IP Pública** y un **Internet Gateway** que dará salida al exterior a todos los elementos de la subred.
 - La segunda máquina estará en la *subred-privada* y configuraremos su grupo de seguridad para que sea accesible únicamente desde la *subred-pública*, sin acceso desde el exterior. Para que esta máquina tenga acceso a Internet (por ejemplo para poder hacer actualizaciones) pero no sea accesible desde Internet, necesitaremos un **NAT-Gateway** que se ubicará en la *subred-pública*
@@ -26,23 +18,9 @@ En esta práctica vamos a crear de manera manual todos estos recursos para poder
 
 ## Práctica a Realizar
 
-### Eliminación de la VPC por defecto
-
-Comenzamos por eliminar la VPC creada por defecto junto con todos sus recursos asociados.
-
-1.- Accedemos al panel VPC y eliminamos la VPC. Nos informa que se eliminarán 8 recursos asociados:
-
-- Las 6 subredes públicas
-- El Internet Gateway
-- El Grupo de Seguridad
-
-<img src="../images/ud03/practica2/VPC_01.png">
-
-___
-
 ### Creación de la nueva VPC
 
-2.- Procedemos a crear la nueva VPC:
+1.- Procedemos a crear la nueva VPC:
 
 -	Le decimos que queremos crear **la VPC y más**.
 -	Asignamos un nombre a la VPC, por ejemplo *practica02*
@@ -64,7 +42,7 @@ ___
 
 ### Comprobación de los recursos creados
 
-3.- Comprobamos los recursos creados:
+2.- Comprobamos los recursos creados:
 
 - La VPC (*practica02-vpc*).
 - Las 2 subredes (*practica02-subnet-public1* y *practica02-subnet-private1*).
@@ -136,7 +114,7 @@ ___
 
 Vamos a crear una máquina Ubuntu en la subred pública a la cual nos podremos conectar desde Internet.
 
-4.- Accedemos al panel de EC2 y lanzamos una instancia.
+3.- Accedemos al panel de EC2 y lanzamos una instancia.
 
 - La nombramos *ub01*
 - La imagen será una AMI de *Ubuntu 24.04 LTS*.
@@ -163,16 +141,16 @@ Al crear la instancia no nos ha preguntado por ningún usuario ni contraseña en
 
 Para conectarnos a la máquina mediante ssh lo debemos hacer con un par de claves. En nuestro caso le hemos indicado que utilizaríamos las del laboratorio (*vockey*), por tanto el primer es descargarnos el fichero de la clave.
 
-5.- Accedemos a la consola de lanzamiento del laboratorio y en *Detalles* pulsamos sobre la descarga del fichero PEM.
+4.- Accedemos a la consola de lanzamiento del laboratorio y en *Detalles* pulsamos sobre la descarga del fichero PEM.
 
 <img src="../images/ud03/practica2/creacion_MV_04.jpg" width=400>
 
-6.- Una vez descargado el fichero de clave debemos cambiar los permisos de dicho archivo:
+5.- Una vez descargado el fichero de clave debemos cambiar los permisos de dicho archivo:
 
 - En Linux: `chmod 400 labuser.pem`
 - En Windows: Dejamos únicamente los permisos para nuestro usuario, eliminando los accesos del resto de usuarios.
 
-7.- Lanzamos el ssh indicando el fichero de la clave privada descargada y sustituyendo por la url correspondiente:
+6.- Lanzamos el ssh indicando el fichero de la clave privada descargada y sustituyendo por la url correspondiente:
 
     ssh -i "labuser.pem" ubuntu@ec2-204-236-197-47.compute-1.amazonaws.com
 
@@ -183,7 +161,7 @@ ___
 
 Una vez dentro de la máquina vamos a instalar un servidor web.
 
-8.- Ejecutamos:
+7.- Ejecutamos:
 
     sudo apt update
     sudo apt install apache2 -y
@@ -193,19 +171,19 @@ ___
 
 ### Acceso a la página web
 
-9.- Una vez instalado el servidor Apache, accedemos desde el navegador de nuestra máquina local a la dirección IP Pública de  nuestra máquina AWS.
+8.- Una vez instalado el servidor Apache, accedemos desde el navegador de nuestra máquina local a la dirección IP Pública de  nuestra máquina AWS.
 
 A pesar de tener instalado y corriendo el servidor web, el navegador no es capaz de resolver la dirección puesto que en el firewall de la instancia (grupo de seguridad *acceso-publico*) sólo hemos permitido conexiones desde el puerto 22.
 
 Vamos a permitir conexiones también del puerto 80 (http) añadiendo una nueva regla de entrada en el grupo de seguridad *acceso-publico*.
 
 <br>
-10.- En la consola de AWS, dentro del panel de VPC, accedemos al grupo de seguridad *acceso-publico* para editar sus propiedades:
+9.- En la consola de AWS, dentro del panel de VPC, accedemos al grupo de seguridad *acceso-publico* para editar sus propiedades:
 
 - En las Reglas de entrada añadimos una del tipo HTTP (Puerto TCP 80) para permitir accesos desde cualquier dirección (0.0.0.0/0).
 
 <br>
-11.- Guardamos las reglas y ya podemos acceder desde el navegador a la página por defecto del servidor Apache instalado en nuestra máquina.
+10.- Guardamos las reglas y ya podemos acceder desde el navegador a la página por defecto del servidor Apache instalado en nuestra máquina.
 
 ___
 <br>
@@ -214,7 +192,7 @@ ___
 
 Vamos a crear una máquina Ubuntu en la subred privada a la cual NO nos podremos conectar desde Internet.
 
-12.- Accedemos al panel de EC2 y lanzamos una instancia.
+11.- Accedemos al panel de EC2 y lanzamos una instancia.
 
 - La nombramos *ub02*
 - La imagen será una AMI de *Ubuntu 24.04 LTS*.
@@ -242,28 +220,28 @@ Por todo ello, si deseamos conectarnos a esta máquina, el único modo es hacerl
 - Averiguar la IP de la máquina (Sabemos que al estar en la subred privada estará en el rango de direcciones 10.0.2.0/24)
 - Pasar la clave privada (*labuser.pem*) que descargamos en nuestra máquina local a la máquina *ub01*, pues nos hará falta para conectarnos a ub02.
 
-13.- Comenzamos accediendo desde el panel de EC2 a los detalles de la instancia *ub02* copiamos la dirección IP privada.
+12.- Comenzamos accediendo desde el panel de EC2 a los detalles de la instancia *ub02* copiamos la dirección IP privada.
 
-14.- En segundo lugar, desde nuestra máquina host (y con la conexión ssh cerrada) copiamos el archivo labuser.pem a la máquina *ubu01* mediante el comando scp:
+13.- En segundo lugar, desde nuestra máquina host (y con la conexión ssh cerrada) copiamos el archivo labuser.pem a la máquina *ubu01* mediante el comando scp:
 
     scp -i labsuser.pem labsuser.pem ubuntu@ec2-18-212-203-120.compute-1.amazonaws.com:/home/ubuntu/clave_privada
 
-15.- Iniciamos sesión en *ub01*:
+14.- Iniciamos sesión en *ub01*:
 
     ssh -i "labuser.pem" ubuntu@ec2-204-236-197-47.compute-1.amazonaws.com
 
-16.- Comprobamos con un ls que se ha copiado el fichero y cambiamos los permisos:
+15.- Comprobamos con un ls que se ha copiado el fichero y cambiamos los permisos:
 
 ```
 ls -l
 chmod 400 clave_privada
 ```
-17.- Nos conectamos con esa clave a la máquina *ub02* mediante la IP privada que anotamos:
+16.- Nos conectamos con esa clave a la máquina *ub02* mediante la IP privada que anotamos:
 
     ssh -i clave_privada ubuntu@10.0.2.112
 
 
-18.- Comprobamos que tenemos conexión de salida a Internet gracias al NAT Gateway:
+17.- Comprobamos que tenemos conexión de salida a Internet gracias al NAT Gateway:
 
     sudo apt update
 ___
@@ -271,9 +249,9 @@ ___
 
 ### Eliminación del NAT Gateaway
 
-19.- Accedemos a la consola de VPC y en Gateways NAT **eliminamos el gateway** (*practica02-nat-public1*) que creamos al crear la VPC.
+18.- Accedemos a la consola de VPC y en Gateways NAT **eliminamos el gateway** (*practica02-nat-public1*) que creamos al crear la VPC.
 
-20.- Intenta en *ubu02* acceder a Internet, por ejemplo actualizando los repositorios:
+19.- Intenta en *ubu02* acceder a Internet, por ejemplo actualizando los repositorios:
 
     sudo apt update
 
@@ -284,11 +262,10 @@ ___
 
 ### Eliminación de recursos
 
-21.- Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
+20.- Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
 
 - Comenzamos liberando la IP elástica que se asoció al NAT Gateway. Accedemos a la consola de EC2 y en IP Elásticas seleccionamos la opción **Publicar dirección IP elástica**. (Publicar = hacer pública = disponible).
 - Terminamos las instancias. En el panel de EC2, con la instancia seleccionada, pulsamos sobre la Acción **Terminar (eliminar) instancia**. Nos informa que el volumen EBS asociado también se eliminará.
 - Por último, esperamos unos minutos a que se acaben de terminar la instancias y **eliminamos los grupos de seguridad** *acceso-publico* y *acceso-privado*, comenzando por este último.
 
 Recuerda finalizar el laboratorio.
-

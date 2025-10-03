@@ -5,6 +5,7 @@
 En esta práctica vamos a crear la misma VPC que en ejercicios anteriores pero utilizando CLI. Se adjunta un script de ejemplo en el cual se realizan las acciones:
 
 * Creación de una VPC
+* Habilitar DNS en la VPC
 * Creación de una subred
 * Creación de un grupo de seguridad
 * Creación de una instancia EC2
@@ -17,9 +18,13 @@ En esta práctica vamos a crear la misma VPC que en ejercicios anteriores pero u
 
 ## Práctica a Realizar
 
-Tienes que descargar y modificar el script
+Tienes que descargar y modificar el siguiente script:
 
-[script Creación VPC](script_UD03.sh)
+=== "Linux"
+    [script Creación VPC para Linux](script_UD03.sh)
+
+=== "Windows"
+    [script Creación VPC para Windows](script_UD03.ps1)
 
 para que cree una VPC con la dirección 192.168.0.0/16 y una subred dentro de esta con la dirección 192.168.3.0/24, luego ejecutas el script. Para poder ejecutarlo tendrás que autenticarte primero con la información
 de la sesión actual de tu laboratorio. Comprueba que se crean los elementos indicados anteriormente.
