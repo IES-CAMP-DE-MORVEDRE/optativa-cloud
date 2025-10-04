@@ -1,6 +1,6 @@
 
 
-# Creación de una VPC con 2 subredes
+# Práctica 2. Creación de una VPC con 2 subredes
 
 ## Objetivo de la Práctica
 
@@ -185,6 +185,9 @@ Vamos a permitir conexiones también del puerto 80 (http) añadiendo una nueva r
 <br>
 10.- Guardamos las reglas y ya podemos acceder desde el navegador a la página por defecto del servidor Apache instalado en nuestra máquina.
 
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se muestre el acceso desde el navegador a la página por defecto servida por el servidor Apache de la máquina EC2. Que se vea claramente la url con la IP pública de la máquina.
+
 ___
 <br>
 
@@ -208,7 +211,7 @@ Vamos a crear una máquina Ubuntu en la subred privada a la cual NO nos podremos
 
 !!! note "Nota"
 
-    En el grupo de seguridad asociado a esta instancia hemos dicho que sólo se pueden admitir conexiones por ssh provenientes del grupo de seguridad *acceso-publico*, de modo que para poder conectarnos a la máquina *ub02* únicamente podremos hacerlo desde la máquina *ubu01*.
+    En el grupo de seguridad asociado a esta instancia hemos dicho que sólo se pueden admitir conexiones por ssh provenientes del grupo de seguridad *acceso-publico*, de modo que **para poder conectarnos a la máquina *ub02* únicamente podremos hacerlo desde la máquina *ubu01*.**
 ___
 <br>
 
@@ -218,11 +221,11 @@ La máquina *ubu02* no tiene dirección pública, y además, aunque la tuviera, 
 Por todo ello, si deseamos conectarnos a esta máquina, el único modo es hacerlo desde la máquina *ub01*. Para ello necesitamos 2 requisitos:
 
 - Averiguar la IP de la máquina (Sabemos que al estar en la subred privada estará en el rango de direcciones 10.0.2.0/24)
-- Pasar la clave privada (*labuser.pem*) que descargamos en nuestra máquina local a la máquina *ub01*, pues nos hará falta para conectarnos a ub02.
+- Pasar la clave privada (`labuser.pem`) que descargamos en nuestra máquina local a la máquina *ub01*, pues nos hará falta para conectarnos a ub02.
 
-12.- Comenzamos accediendo desde el panel de EC2 a los detalles de la instancia *ub02* copiamos la dirección IP privada.
+12.- Comenzamos accediendo desde el panel de EC2 a los detalles de la instancia *ub02* y copiamos la dirección IP privada.
 
-13.- En segundo lugar, desde nuestra máquina host (y con la conexión ssh cerrada) copiamos el archivo labuser.pem a la máquina *ubu01* mediante el comando scp:
+13.- En segundo lugar, desde nuestra máquina host (y con la conexión ssh cerrada) copiamos el archivo `labuser.pem` a la máquina *ubu01* mediante el comando `scp`:
 
     scp -i labsuser.pem labsuser.pem ubuntu@ec2-18-212-203-120.compute-1.amazonaws.com:/home/ubuntu/clave_privada
 
@@ -244,6 +247,9 @@ chmod 400 clave_privada
 17.- Comprobamos que tenemos conexión de salida a Internet gracias al NAT Gateway:
 
     sudo apt update
+
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se muestre que ha funcionado el comando `apt update` y que se vea la dirección IP interna (aparece en el prompt de comandos).
 ___
 <br>
 
