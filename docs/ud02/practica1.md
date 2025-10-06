@@ -43,7 +43,7 @@ ___
 - En el par de claves podemos elegir entre crear un nuevo par de claves o utilizar las ya creadas de nuestro laboratorio (*vockey*). Seleccionamos las ya creadas **vockey**.
 - En la configuración de red pulsamos en Editar:
     - Dejamos la VPC (la red virtual) predeterminada.
-    - Seleccionamos una subred (por ejemplo la asociada a la zona de disponibilidad 2 cuyo nombre es **us-east-1b** y su dirección de red es *172.13.16.0/20*)
+    - Seleccionamos una subred (por ejemplo la asociada a la zona de disponibilidad 2 cuyo nombre es **us-east-1b** y su dirección de red es *172.31.16.0/20*)
     - Habilitamos la **asignación de una IP Pública** para conectarnos desde Internet a esta máquina.
     - Creamos un grupo de seguridad (reglas de firewall) nuevo y lo llamamos **acceso-remoto** y le ponemos una descripción (*acceso remoto a W2025*)
     - Como regla de entrada dejamos la que viene por defecto que habilita el **puerto 3389 (RDP)** desde **cualquier lugar** de Internet (0.0.0.0/0)
