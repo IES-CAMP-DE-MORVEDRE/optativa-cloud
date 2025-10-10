@@ -2,76 +2,66 @@
 
 Publicación de un sitio web estático en Amazon S3 con control de acceso mediante políticas de bucket.
 
-<img src="../images/ud04/practica1/bucket00.png" width="600">
-
 ## Objetivo de la práctica
 
-* Comprender el funcionamiento del **alojamiento web estático** en Amazon S3.
-* Aprender a **crear un bucket**, **subir un sitio web** y **habilitar su acceso público mediante una política de bucket**.
-* Configurar S3 para que sirva **páginas web (HTML, CSS, imágenes, etc.)** directamente.
-* Comprobar el acceso al sitio web a través de una **URL pública de S3**.
+* Comprender el funcionamiento del alojamiento web estático en Amazon S3.
+* Aprender a crear un bucket, subir un sitio web y habilitar su acceso público **mediante una política de bucket**.
+* Configurar S3 para que sirva páginas web (HTML, CSS, imágenes, etc.) directamente.
+* Comprobar el acceso al sitio web a través de una URL pública de S3.
 
 
-## 🪣 **Parte 1. Preparación del material**
+## Preparación del material
 
-1. Accede al **repositorio de GitHub** de la práctica (por ejemplo:
-   `https://github.com/usuario/nombre-repo`).
-2. Descarga el repositorio en formato **ZIP** pulsando en **Code → Download ZIP**.
-3. Descomprime el archivo ZIP en tu equipo local. Deberías tener una carpeta con archivos como `index.html`, `style.css`, `imagenes/`, etc.
+1.- En primer lugar vamos a descargar desde GitHub un repositorio con una web de muestra. Lo haremos en un fichero `.zip` el cual habrá que descomprimir:
 
----
-
-## 🧱 **Parte 2. Creación del bucket**
-
-1. Inicia sesión en la **Consola de AWS** y entra en el servicio **S3**.
-2. Haz clic en **“Crear bucket”**.
-3. Completa los campos:
-
-   * **Nombre del bucket:** por ejemplo, `asir-web-estatica-nombrealumno`.
-   * **Región:** elige una cercana, como **Europa (Irlanda)**.
-4. En la sección **“Bloquear el acceso público”**, **desmarca** la casilla *“Bloquear todo el acceso público”*.
-
-   > ⚠️ Esto se hace solo con fines educativos. En entornos reales se usarían mecanismos más seguros.
-5. Pulsa **“Crear bucket”**.
+- Accede al repositorio de GitHub que contiene una web de muestra:
+   [`https://github.com/ies-camp-de-morvedre/hello-cloud`](https://github.com/IES-CAMP-DE-MORVEDRE/hello-cloud).
+- Descarga el repositorio en formato ZIP pulsando en **Code → Download ZIP**.
+- Descomprime el archivo ZIP en tu equipo local. Deberías tener una carpeta con archivos como `index.html`, `assets/`, etc.
 
 ---
 
-## 📤 **Parte 3. Subir los archivos de la web**
+## Creación del bucket
 
-1. Entra en el bucket creado.
-2. Haz clic en **“Cargar” → “Añadir archivos”** y selecciona todos los archivos y carpetas del sitio web.
-3. Pulsa **“Cargar”** y espera a que finalice el proceso.
+2.- Inicia sesión en la **Consola de AWS** y entra en el servicio **S3**. Crea un bucket:
 
----
+   - Que el bucket sea de **uso general**.
+   - Pon un nombre del bucket único, por ejemplo, `web-estatica-nombrealumno`.
+   - Deja **deshabilitadas las ACL**.
+   - Haz que el acceso al bucket sea público, **desmarca** la casilla *“Bloquear todo el acceso público”*.
 
-## ⚙️ **Parte 4. Activar el alojamiento web estático**
+!!! danger "Atención"
+    Ya sabemos que hacer el bucket público es una práctica peligrosa.
 
-1. En la vista del bucket, abre la pestaña **“Propiedades”**.
-2. Busca la sección **“Alojamiento de sitio web estático”**.
-3. Haz clic en **“Editar”** → selecciona **“Habilitar”**.
-4. En **Documento de índice**, escribe:
-
-   ```
-   index.html
-   ```
-5. (Opcional) Si tu web tiene página de error, indícalo en **Documento de error**, por ejemplo:
-
-   ```
-   error.html
-   ```
-6. Pulsa **“Guardar cambios”**.
-7. Copia la **URL del sitio web** que aparece (por ejemplo:
-   `http://asir-web-estatica-nombrealumno.s3-website-eu-west-1.amazonaws.com`).
 
 ---
 
-## 🔒 **Parte 5. Configurar la política del bucket**
+## Subir los archivos de la web
 
-1. Ve a la pestaña **“Permisos”** del bucket.
+3.- Entra en el bucket creado y carga los archivos descomprimidos.
 
-2. Localiza **“Política de bucket”** y pulsa **“Editar”**.
+!!! warning "Atención"
+    A la hora de subir el contenido no subas directamente la carpeta `hello-cloud-main` sino únicamente los ficheros y carpetas que hay en su interior, asegurándote que el fichero `index.html` y el resto de archivos y carpetas de ese nivel quedan en la raíz del bucket.
 
-3. Pega la siguiente **política JSON**, sustituyendo el nombre del bucket por el tuyo:
+---
+
+## Activar el alojamiento web estático
+
+4.- Con el contenido ya cargado, vamos a activar el alojamiento web estático. Para ello, en la vista del bucket, ve a la pestaña **“Propiedades”**:
+
+- En la sección **“Alojamiento de sitio web estático”** zaz clic en **“Editar”** → selecciona **“Habilitar”**.
+- En **Documento de índice** escribe: `index.html`
+- Copia la URL del sitio web que aparece (por ejemplo: `http://web-estatica-nombrealumno.s3-website-eu-west-1.amazonaws.com`).
+
+---
+
+## Configurar la política del bucket
+
+5.- Si intentamos acceder a la url de la página web estática nos dará un error de permisos, pues no es suficiente con hacer público el bucket. Es necesario que además concedamos permisos. En la práctica anterior vimo cómo cambiar estos permisos mediante ACLs, pero AWS nos recomienda que lo hagamos por políticas. En esta práctica **vamos a cambiar los permisos mediante políticas**:
+
+- Accede a la pestaña **Permisos** del bucket.
+- Localiza **Política de bucket** y pulsa *Editar*.
+- Pega la siguiente política en formato JSON, sustituyendo el nombre del bucket por el tuyo:
 
    ```json
    {
@@ -82,55 +72,20 @@ Publicación de un sitio web estático en Amazon S3 con control de acceso median
          "Effect": "Allow",
          "Principal": "*",
          "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::asir-web-estatica-nombrealumno/*"
+         "Resource": "arn:aws:s3:::web-estatica-nombrealumno/*"
        }
      ]
    }
    ```
 
-4. Guarda los cambios.
-
-   > Esta política permite que **cualquiera pueda leer los archivos del bucket**, pero **no modificarlos ni borrarlos**.
+   > Esta política `PublicReadGetObject` junto con la opción `Allow` permite que cualquiera pueda leer los archivos del bucket, pero no modificarlos ni borrarlos.
 
 ---
 
-## 🌍 **Parte 6. Comprobar el funcionamiento**
+## Comprobar el funcionamiento
 
-1. Abre la **URL del sitio web** copiada en la parte 4.
-2. Si todo está correcto, tu página `index.html` se mostrará públicamente.
-3. Prueba a acceder a imágenes o archivos directamente desde el navegador usando su ruta, por ejemplo:
+- Abre la **URL del sitio web**.
+- Si todo está correcto, la página `index.html` y el resto del contenido se mostrará públicamente.
 
-   ```
-   http://asir-web-estatica-nombrealumno.s3-website-eu-west-1.amazonaws.com/imagenes/logo.png
-   ```
-4. Si aparece un error 403 (Forbidden), revisa que:
-
-   * Has desactivado el bloqueo de acceso público.
-   * La política de bucket se guardó correctamente.
-   * Los nombres de archivo coinciden (mayúsculas/minúsculas incluidas).
-
----
-
-## ✅ **Comprobaciones finales**
-
-* ¿La web se carga correctamente desde la URL de S3?
-* ¿El acceso se ha controlado mediante **política de bucket**, no ACL?
-* ¿El documento de índice se muestra automáticamente?
-* ¿Has entendido la diferencia entre **alojamiento web estático** y **almacenamiento de objetos privado**?
-
-
-
-
-Práctica 1 --> Crear bucket, subir contenido y acceder a él (Con ACLs). Control de versiones.
-
-Práctica 2 --> Crear web estática en bucket S3 (Con políticas)
-
-Práctica 3 --> Práctica guiada EBS. Creación de un volumen e instantánea y montaje en otra instancia. Última parte creación de un volumen en otra instancia, formateo y montaje manual.
-
-Práctica 4 --> Práctica guiada EFS.
-
-Práctica 5 (Opcional) --> CI/CD Web estática en S3 desde Github
-
-https://aitor-medrano.github.io/bigdata2122/apuntes/nube04almacenamiento.html
-
-https://aitor-medrano.github.io/iabd/cloud/s3.html
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se muestre que ha funcionado el aaceso desde el navegador a la web. Debe verse la url y el contenido de la página web.
