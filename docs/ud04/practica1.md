@@ -2,6 +2,8 @@
 
 Creación y gestión de un bucket en Amazon S3: subida de objetos, control de permisos y versiones.
 
+<img src="../images/ud04/practica1/bucket00.png" width="600">
+
 ## Objetivo de la práctica
 
 * Comprender el funcionamiento de Amazon S3 como servicio de almacenamiento de objetos.
@@ -12,85 +14,116 @@ Creación y gestión de un bucket en Amazon S3: subida de objetos, control de pe
 
 ## Práctica a realizar
 
-### Parte 1. Creación del bucket
+### Creación del bucket
 
-1. Inicia sesión en la **Consola de AWS** y entra en el servicio **S3**.
-2. Pulsa en **“Crear bucket”**.
-3. Especifica:
+1.- Inicia sesión en la Consola de AWS y entra en el servicio **S3**.
 
-   * **Nombre del bucket:** debe ser único (por ejemplo: `asir-practica-s3-nombrealumno`).
-   * **Región:** elige una cercana, por ejemplo **Europa (Irlanda)**.
-4. En “**Configuración de permisos**”, **desactiva el bloqueo del acceso público** (solo para esta práctica).
-5. Crea el bucket pulsando **“Crear bucket”**.
+- Pulsa en **“Crear bucket”**.
+- Especifica:
+   
+    - **Tipo de bucket**: Uso general.
+    - **Nombre del bucket:** debe ser único en todo el mundo (por ejemplo: `practica-s3-nombrealumno`).
 
+- Deja todos los demás campos por defecto.
+- Crea el bucket pulsando **“Crear bucket”**.
 
-
-### Parte 2. Subida de objetos
-
-1. Entra en el bucket recién creado.
-2. Pulsa **“Cargar”** → **“Añadir archivos”** y selecciona 2 o 3 imágenes.
-3. Haz clic en **“Cargar”** para subirlas.
-4. Comprueba que aparecen en la lista de objetos.
+<img src="../images/ud04/practica1/bucket01.png">
 
 ---
 
-### Parte 3. Cambiar permisos mediante ACL
+### Subida de objetos
 
-1. Selecciona una de las imágenes subidas.
-2. En la pestaña **“Permisos”**, busca la sección **“Listas de control de acceso (ACL)”**.
-3. Pulsa en **“Editar”** y concede permiso de **lectura pública** al objeto (lectura para “Todos los usuarios”).
-4. Guarda los cambios.
+2.- Entra en el bucket recién creado para añadir contenidos:
+
+- Pulsa **“Cargar”** → **“Añadir archivos”** y selecciona 2 o 3 imágenes en formato jpg de tu equipo. Por ejemplo `foto1.jpg` y `foto2.jpg`
+- Haz clic en **“Cargar”** para subirlas.
+- Prueba a cargar también una carpeta con archivos dentro.
+- Comprueba que aparecen en la lista de objetos.
+
+<img src="../images/ud04/practica1/bucket02.png">
+
+---
+
+### Acceso mediante URL
+
+3.- Vamos a acceder a uno de los objetos recién subidos, por ejemplo `foto1.jpg`, desde un navegador especificicando su url:
+
+- Ve a la pestaña **“Propiedades”** del objeto `foto1.jpg`
+- Copia la **URL del objeto** (por ejemplo:
+   `https://practica-s3-nombrealumno.s3.us-east-1.amazonaws.com/foto1.jpg`)
+
+---
+
+<img src="../images/ud04/practica1/bucket03.png">
+
+- Abre un **navegador web** y pega la URL.
+- Comprueba que la imagen no se muestra correctamente alno disponer de permisos.
+
+<img src="../images/ud04/practica1/bucket04.png">
+
+
+### Desbloquear el acceso público
+
+4.- Vamos ahora a desbloquear la restricción de acceso público al bucket. Lo podríamos haber hecho en el momento de creación. Para ello, en la pantalla del bucket accedemos a la pestaña **Permisos** y editamos la opción de **Bloquear acceso público**.
+
+<img src="../images/ud04/practica1/bucket05.png">
+
+Desmarcamos todas las opciones. Nos pide que confirmemos.
+
+<img src="../images/ud04/practica1/bucket06.png" width="700">
 
 !!! danger "Atención"
     En entornos reales **no se deben dejar objetos públicos**.
 
----
-
-### Parte 4. Acceso mediante URL
-
-1. Vuelve a la pestaña **“Propiedades”** del objeto.
-2. Copia la **URL del objeto** (por ejemplo:
-   `https://asir-practica-s3-nombrealumno.s3.eu-west-1.amazonaws.com/foto1.jpg`)
-3. Abre un **navegador web** y pega la URL.
-4. Comprueba que la imagen se muestra correctamente (gracias al permiso público).
+Si accedemos de nuevo desde un navegador a la url del objeto veremos que continuamos sin poder acceder al objeto, a pesar de haber hecho público el bucket. Aún nos falta un paso más.
 
 ---
 
-### Parte 5. Activar el control de versiones
+### Cambio de permisos mediante ACL
 
-1. Regresa a la vista principal del bucket.
-2. En la pestaña **“Propiedades”**, busca la sección **“Control de versiones”**.
-3. Pulsa **“Editar”** → activa el **control de versiones** → **Guardar cambios**.
+5.- Las políticas de acceso a los objetos se pueden controlar de varias maneras (ACLs, Políticas, Roles). Vamos a hacerlo por una opción más sencilla pero que AWS no recomienda: mediante ACLs (*listas de control de acceso*). Para ello el primer paso será habilitar las ACLs que por defecto aparecen deshabilitadas. **Este paso también podríamos haberlo hecho al crear el bucket**.
 
----
+- Vuelve a selecciona el objeto en S3.
+- En la pestaña **“Permisos”**, busca la sección **“Propiedades de los objetos”**.
+- Pulsa en **“Editar”** y **habilita las ACLs**.
 
-### Parte 6. Probar el control de versiones
-
-1. Sube **de nuevo una imagen con el mismo nombre** que una ya existente (por ejemplo `foto1.jpg`).
-2. S3 **no reemplazará** la imagen anterior, sino que guardará **una nueva versión**.
-3. Ve al objeto y selecciona la pestaña **“Versiones”** para ver las distintas versiones almacenadas.
-4. Prueba a **descargar o restaurar** la versión anterior.
+<img src="../images/ud04/practica1/bucket07.png">
 
 ---
 
-###  Comprobaciones finales
+6.- Una vez habilitadas las ACL, vamoa a hacer público el objeto en particular:
 
-* ¿Puedes acceder a la imagen pública desde el navegador?
-* ¿El bucket tiene el control de versiones activado?
-* ¿Aparecen varias versiones del mismo archivo?
+- Seleccionam el objeto `foto1.jpg` 
+- En el menú **Acciones** selecciona **Hacer público mediante ACL**.
+- Comprueba que ya puedes acceder desde el navegador a la url pública del objeto.
+
+<img src="../images/ud04/practica1/bucket08.png">
 
 
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se muestre que ha funcionado el aaceso desde el navegador a la imagen. Debe verse la url del objeto y la fotografía mostrada dentro del navegador.
 
-Práctica 1 --> Crear bucket, subir contenido y acceder a él (Con ACLs). Control de versiones.
+---
 
-Práctica 2 --> Crear web estática en bucket S3 (Con políticas)
 
-Práctica 3 --> Práctica guiada EBS. Creación de un volumen e instantánea y montaje en otra instancia. Última parte creación de un volumen en otra instancia, formateo y montaje manual.
+### Activar el control de versiones
 
-Práctica 4 --> Práctica guiada EFS.
+Amazon S3 incorpora una funcionalidad que permite mantener múltiples versiones de un objeto en el mismo bucket, protegiendo contra eliminaciones o modificaciones no deseadas. Cuando se habilita, S3 conserva una versión anterior del objeto cada vez que se modifica o elimina. Esto permite recuperar y restaurar fácilmente versiones anteriores de un objeto en cualquier momento
 
-Práctica 5 (Opcional) --> CI/CD Web estática en S3 desde Github
+- Regresa a la vista principal del bucket.
+- En la pestaña **“Propiedades”**, busca la sección **“Control de versiones”**.
+- Pulsa **“Editar”** → activa el **control de versiones** → **Guardar cambios**.
 
-https://aitor-medrano.github.io/bigdata2122/apuntes/nube04almacenamiento.html
+---
 
-https://aitor-medrano.github.io/iabd/cloud/s3.html
+### Probar el control de versiones
+
+- Sube **de nuevo una imagen con el mismo nombre** que una ya existente (por ejemplo `foto1.jpg`).
+- S3 **no reemplazará** la imagen anterior, sino que guardará una nueva versión.
+- Ve al objeto y selecciona la pestaña **“Versiones”** para ver las distintas versiones almacenadas.
+- Prueba a **descargar o restaurar** la versión anterior.
+
+<img src="../images/ud04/practica1/bucket09.png">
+
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se muestren las distintas versiones del archivo.
