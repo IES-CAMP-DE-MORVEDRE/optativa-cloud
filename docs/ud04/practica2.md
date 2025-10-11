@@ -31,7 +31,7 @@ Publicación de un sitio web estático en Amazon S3 con control de acceso median
    - Haz que el acceso al bucket sea público, **desmarca** la casilla *“Bloquear todo el acceso público”*.
 
 !!! danger "Atención"
-    Ya sabemos que hacer el bucket público es una práctica peligrosa.
+    Ya sabemos que hacer el bucket público es una práctica peligrosa, pero en este caso no tenemos elección.
 
 
 ---
@@ -49,7 +49,7 @@ Publicación de un sitio web estático en Amazon S3 con control de acceso median
 
 4.- Con el contenido ya cargado, vamos a activar el alojamiento web estático. Para ello, en la vista del bucket, ve a la pestaña **“Propiedades”**:
 
-- En la sección **“Alojamiento de sitio web estático”** zaz clic en **“Editar”** → selecciona **“Habilitar”**.
+- En la sección **“Alojamiento de sitio web estático”** haz clic en **“Editar”** → selecciona **“Habilitar”**.
 - En **Documento de índice** escribe: `index.html`
 - Copia la URL del sitio web que aparece (por ejemplo: `http://web-estatica-nombrealumno.s3-website-eu-west-1.amazonaws.com`).
 
@@ -78,7 +78,11 @@ Publicación de un sitio web estático en Amazon S3 con control de acceso median
    }
    ```
 
-   > Esta política `PublicReadGetObject` junto con la opción `Allow` permite que cualquiera pueda leer los archivos del bucket, pero no modificarlos ni borrarlos.
+   > Esta política `s3:GetObject` junto con la opción `Allow` permite que cualquiera (`*`) pueda leer los archivos del bucket, pero no modificarlos ni borrarlos.
+
+   > El recurso `"Resource": "arn:aws:s3:::web-estatica-nombrealumno/*"` indica el *arn* del bucket seguido de `/*`, que significa cualquier objeto dentro del bucket.
+
+   > El **arn** es el *Amazon Resource Name*, es decir, un identificador único que AWS usa para referirse a cualquier recurso dentro de su infraestructura: un bucket S3, una instancia EC2, una función Lambda, una política IAM, etc.
 
 ---
 
