@@ -2,6 +2,12 @@
 
 Creación de un volumen EBS y montaje en varias instancias EC2.
 
+!!! tip "Recuerda"
+    - Los volúmenes EBS equivalen a los **discos duros virtuales** que utilizan las instancias EC2.
+	- Un volumen sólo puede estar **conectado a una instancia** simultáneamente.
+	- Pero una instancia puede **conectar varios volúmes EBS** simultáneamente.
+
+
 ## Objetivo de la práctica
 
 * Comprender el funcionamiento del almacenamiento **EBS (Elastic Block Store)**.
@@ -24,6 +30,9 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
 * **Network settings:** deja la VPC y subred por defecto
 * **Storage:** deja el volumen raíz predeterminado (8 GB)
 
+!!! warning "Importante"
+    Recuerda la zona de disponibilidad en la que se ha creado la máquina. El volumen EBS que crearemos debe estar necesariamente en la misma AZ que la EC2.
+
 2.- Lanza la instancia y espera a que el estado sea **Running**.
 
 3.- Podemos conectarnos por ssh, pero esta vez lo vamos a hacer desde el propio navegador:
@@ -38,81 +47,105 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
 
 <img src="../images/ud04/practica3/ebs02.png">
 
-
 ---
 
 ## Crear y adjuntar un volumen EBS
 
-1. En el panel **Elastic Block Store → Volumes**, selecciona:
+4.- Estando en la pantalla de las instancia de EC2, en el panel lateral aparece un menú **Elastic Block Store → Volúmenes**. Accede a él y selecciona:
 
-   * **Create volume**
-   * **Type:** gp3
-   * **Size:** 2 GiB
-   * **Availability Zone:** *la misma que tu EC2 (por ejemplo eu-west-1a)*
-2. Una vez creado, selecciona el volumen → **Actions → Attach volume**
+   * **Crear volumen**
+   * **Tipo:** gp3
+   * **Tamaño:** 20 GiB
+   * **Availability Zone:** la misma que tu EC2
+   * Deja los valores por defecto que te propone para las **IOPS** y el **Rendimiento**.
+   * No marques la opción de **cifrado**
 
-   * **Instance:** elige tu instancia `Servidor-A`
-   * **Device name:** `/dev/sdf`
-3. Verifica desde la instancia que se haya detectado:
+5.- Una vez creado, selecciona el volumen y pulsa sobre **Acciones → Asociar volumen**
 
-   ```bash
-   lsblk
-   ```
+   * **Instancia:** elige la instancia `Servidor-A`
+   * **Nombre de dispositivo:** selecciona uno de la lista, por ejemplo `/dev/sdf`
 
 ---
 
 ## Formatear y montar el volumen
-
-1. Formatea el volumen (solo la primera vez):
+6.- Accede al terminal de la máquina EC2 y verifica desde la instancia que se haya detectado el nuevo disco (puedes verificar que el número de serie coincide con el de la consola de EBS):
 
    ```bash
-   sudo mkfs -t ext4 /dev/xvdf
+   lsblk -o NAME,SIZE,SERIAL,TYPE,MOUNTPOINTS
    ```
-2. Crea un punto de montaje:
+
+!!! warning "Atención"
+    Es posible que la máquina EC2 no le asigne el nombre `/dev/sdf` que hemos seleccionado y en su lugar utilice la nomenclatura `/dev/nvmeXnY` que corresponde a los discos NVME.
+
+7.- Formatea el volumen (sustituye por el nombre de dispositivo que te haya asignado):
+
+   ```bash
+   sudo mkfs -t ext4 /dev/nvme1n1
+   ```
+   > Fíjate que no hemos creado ninguna partición en el disco, sino que hemos creado el sistema de ficheros directamente sobre todo el disco. Esto puede ser peligroso, pero en el caso de los discos EBS no hay problema de hacerlo así.
+
+8.- Crea un punto de montaje:
 
    ```bash
    sudo mkdir /datos
    ```
-3. Monta el volumen:
+9.- Monta el volumen:
 
    ```bash
-   sudo mount /dev/xvdf /datos
+   sudo mount /dev/nvme1n1 /datos
    ```
-4. Comprueba:
+10.- Comprueba:
 
    ```bash
    df -h
    ```
-5. Crea un archivo de prueba:
+11.- Crea un archivo de prueba:
 
    ```bash
    echo "Prueba EBS" | sudo tee /datos/info.txt
+   ```
+
+12.- Muestra el contenido del archivo creado:
+
+   ```bash
+   echo cat /datos/info.txt
    ```
 
 ---
 
 ## Desmontar y conectar el volumen a otra EC2
 
-1. Desmonta el volumen en `Servidor-A`:
+13.- Vamos ahora a desmontar el volumen en `Servidor-A` para dejarlo disponible para ser utilizado por otra instancia:
 
    ```bash
    sudo umount /datos
    ```
-2. En la consola AWS:
 
-   * Detén la instancia o simplemente **Detach volume** desde el menú de acciones.
-3. Crea una **segunda instancia EC2**:
+14.- En la consola AWS:
 
-   * **Name:** `Servidor-B`
-   * Misma AZ (*eu-west-1a*)
-4. Una vez en ejecución, **Attach volume** → selecciona el mismo volumen.
-5. Conéctate a `Servidor-B` por SSH y monta el volumen:
+   * Selecciona el volumen EBS y pulsa sobre **Desasociar el volumen** desde el menú de acciones.
 
-   ```bash
-   sudo mkdir /datos
-   sudo mount /dev/xvdf /datos
-   cat /datos/info.txt
-   ```
+
+15.- Crea una **segunda instancia EC2** de Ubuntu:
+
+   * **Nombre:** `Servidor-B`
+   * **Importante**: Misma AZ que el `Servidor-A`
+
+16.- Una vez en ejecución, desde el panel de **Acciones** de EBS, **Asociar volumen** → selecciona el mismo volumen EBS creado anteriormente y lo asocias a `Servidor-B`.
+
+17.- Conéctate a `Servidor-B` y monta el volumen:
+
+```
+sudo mkdir /datos
+```
+
+``` bash
+sudo mount /dev/nvme1n1 /datos
+```
+
+``` bash
+cat /datos/info.txt
+```
 
    Verás el contenido creado en la otra máquina:
 
@@ -120,32 +153,33 @@ Creación de un volumen EBS y montaje en varias instancias EC2.
    Prueba EBS
    ```
 
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se muestre que han funcionado todos los comandos ejecutados en `Servidor-B`
+
 ---
 
 ## Crear y restaurar una instantánea (snapshot)
 
-1. Desde la consola **EBS → Volumes**, selecciona tu volumen y pulsa **Create snapshot**.
+18.- Desde la consola **EBS → Volumenes**, selecciona tu volumen y pulsa **Crear instantánea** dentro del menú **Acciones**.
 
-   * **Description:** “Snapshot de prueba del volumen EBS”
-2. Espera a que el estado del snapshot sea **Completed**.
-3. Ahora, crea un nuevo volumen **a partir del snapshot**:
+   * **Descripción:** “Snapshot de prueba del volumen EBS”
 
-   * **Actions → Create volume from snapshot**
-   * Mismo tipo y AZ (*eu-west-1a*)
-4. Conéctalo a cualquiera de las instancias y verifica que el archivo `/datos/info.txt` sigue existiendo.
+19.- Espera a que el estado del snapshot sea **Completed**.
 
+20.- Ahora, vamos a crear un nuevo volumen a partir de la instantánea creada. Para ello accedemos al panel lateral **Elastic Block Store → Instantáneas**:
 
+- Seleccionamos la instantánea que acabamos de crear.
+- En el menú **Acciones** pulsamos sobre **Crear volumen a partir de una instantánea**:
 
-Práctica 1 --> Crear bucket, subir contenido y acceder a él (Con ACLs). Control de versiones.
+    - Seleccionamos el mismo tipo y AZ que el volumen anterior.
+    - Dejamos es resto de los valores por defecto.
 
-Práctica 2 --> Crear web estática en bucket S3 (Con políticas)
+21.- Conéctalo a cualquiera de las instancias y verifica que el archivo `/datos/info.txt` sigue existiendo.
 
-Práctica 3 --> Práctica guiada EBS. Creación de un volumen e instantánea y montaje en otra instancia. Última parte creación de un volumen en otra instancia, formateo y montaje manual.
+## Liberación de recursos
 
-Práctica 4 --> Práctica guiada EFS.
+Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
 
-Práctica 5 (Opcional) --> CI/CD Web estática en S3 desde Github
+- Termina todas la instancias y elimina los volúmenes EBS creados.
 
-https://aitor-medrano.github.io/bigdata2122/apuntes/nube04almacenamiento.html
-
-https://aitor-medrano.github.io/iabd/cloud/s3.html
+Recuerda finalizar el laboratorio cuando acabes con las prácticas.

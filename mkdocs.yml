@@ -21,6 +21,7 @@ nav:
       - "Capa de Almacenamiento": "ud04/ud04.md"
       - "Práctica 1. Creación de bucket en S3": "ud04/practica1.md"
       - "Práctica 2. Publicación de una web estática en S3": "ud04/practica2.md"
+      - "Práctica 3. Gestión de volúmenes EBS": "ud04/practica3.md"
   - "UD05. Incorporación de una capa de base de datos":
       - "Práctica 1. Creación de una Base de datos Gestionada con acceso público": "ud05/bdpractica01.md"
   
