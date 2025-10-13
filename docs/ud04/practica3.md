@@ -180,6 +180,6 @@ cat /datos/info.txt
 
 Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
 
-- Termina todas la instancias y elimina los volúmenes EBS creados.
+- Finaliza las instancias **pero no las elimines** (nos harán falta para la siguiente práctica).
+- Elimina los volúmenes EBS creados.
 
-Recuerda finalizar el laboratorio cuando acabes con las prácticas.
