@@ -1,4 +1,4 @@
-# Práctica 3. Creación de VPC con CLI 
+# Práctica 3. Creación de VPC con CLI
 
 ## Objetivo de la práctica
 
@@ -15,7 +15,6 @@ En esta práctica vamos a crear la misma VPC que en ejercicios anteriores pero u
 * Se agregan una ruta para salida a internet.
 * Se asocia la tabla de rutas a la subred.
 
-
 ## Práctica a Realizar
 
 Tienes que descargar el siguiente script:
@@ -28,7 +27,7 @@ Tienes que descargar el siguiente script:
 
 ### Parte 1. Modificación del script de creación de la VPC y la EC2
 
-La práctica consiste en modificar el script para que la VPC la cree con la dirección `192.168.0.0/16` y la subred que hay dentro de ella la cree con la dirección `192.168.3.0/24`. 
+La práctica consiste en modificar el script para que la VPC la cree con la dirección `192.168.0.0/16` y la subred que hay dentro de ella la cree con la dirección `192.168.3.0/24`.
 
 !!! warning "Atención"
     Fíjate que la instancia EC2 del script de ejemplo se crea con una IP fija dentro de la subred.
@@ -36,16 +35,20 @@ La práctica consiste en modificar el script para que la VPC la cree con la dire
 Ejecuta el script. Para poder ejecutarlo tendrás que autenticarte primero con la información de la sesión actual de tu laboratorio. Comprueba que se crean los elementos indicados anteriormente.
 
 ### Parte 2. Creación de una subred y otra máquina EC2
+
 **Esta parte se hace desde la consola gráfica de AWS**
 
 Debes crear una instancia EC2 en otra subred de nombre “*subred-tunombre*” y hacer un ping de una máquina a otra.
 
-Para comrpbar el ping, rimero deberás conectarte por ssh a la primera máquina y hacer un ping a la segunda máquina de manera local (el ping funciona).
+Para comrpbar el ping, primero deberás conectarte por ssh a la primera máquina y hacer un ping a la segunda máquina de manera local (el ping funciona).
 
 Deberás modificar el grupo de seguridad creado y permitir el protocolo ICMP. Normalmente las instancias tienen grupos de seguridad diferentes, pero en este caso como la configuración es muy sencilla, en la nueva máquina EC2 puedes reutilizar el grupo de seguridad y permitir el ping.
 
+!!! warning "Atención"
+    Fíjate que cuando cambias de sesión el token del cli también te cambia, es decir, debes cambiar las credentials tal como hiciste en la práctica  [La interfaz de Linea de comandos](..//ud01/practica01.md) . 
 
 !!! success "Captura las pantallas"
+
     Resultado de la ejcución del script
 
     Mapa de recursos de la vpc creada
