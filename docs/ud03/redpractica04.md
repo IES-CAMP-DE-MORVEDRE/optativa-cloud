@@ -40,7 +40,7 @@ Ejecuta el script. Para poder ejecutarlo tendrás que autenticarte primero con l
 
 Debes crear una instancia EC2 en otra subred de nombre “*subred-tunombre*” y hacer un ping de una máquina a otra.
 
-Para comrpbar el ping, primero deberás conectarte por ssh a la primera máquina y hacer un ping a la segunda máquina de manera local (el ping funciona).
+Para comprobar el ping, primero deberás conectarte por ssh a la primera máquina y hacer un ping a la segunda máquina de manera local (el ping funciona).
 
 Deberás modificar el grupo de seguridad creado y permitir el protocolo ICMP. Normalmente las instancias tienen grupos de seguridad diferentes, pero en este caso como la configuración es muy sencilla, en la nueva máquina EC2 puedes reutilizar el grupo de seguridad y permitir el ping.
 
