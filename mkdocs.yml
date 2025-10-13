@@ -24,7 +24,8 @@ nav:
       - "Práctica 3. Gestión de volúmenes EBS": "ud04/practica3.md"
       - "Práctica 4. Almacenamiento compartido con EFS": "ud04/practica4.md"
   - "UD05. Incorporación de una capa de base de datos":
-      - "Práctica 1. Creación de una Base de datos Gestionada con acceso público": "ud05/bdpractica01.md"
+      - "Práctica 1. Base de datos con acceso público": "ud05/bdpractica01.md"
+      - "Práctica 2. Base de datos privada": "ud05/bdpractica02.md"
   
 
 theme:
