@@ -22,7 +22,7 @@ AWS ofrece varios servicios gestionados de Bases de Datos. Los más populares so
 
 !!! note "Nota"
 
-    En esta práctica, el servicio gestionado de BBDD que vamos a utilizar es**RDS basado en MySQL**, que permite ejecutar bases de datos MySQL.
+    En esta práctica, el servicio gestionado de BBDD que vamos a utilizar es **RDS basado en MySQL**, que permite ejecutar bases de datos MySQL.
 
 ## Esquema en AWS
 
@@ -53,7 +53,7 @@ ___
 
 !!! note "Nota"
 
-    Podríamos haber seleccionado el**método de creación rápida**, que nos pide muchos menos parámetros para crear la BBDD, pero nos habría dejado la opción de **Permitir Acceso Público** como **NO**. Ello implica que nos tocaría acceder a modificar los parámetros una vez creada la BBDD para permitir ese acceso público, y además deberíamos permitir la regla de entrada correspondiente en el grupo de seguridad.
+    Podríamos haber seleccionado el **método de creación rápida**, que nos pide muchos menos parámetros para crear la BBDD, pero nos habría dejado la opción de **Permitir Acceso Público** como **NO**. Ello implica que nos tocaría acceder a modificar los parámetros una vez creada la BBDD para permitir ese acceso público, y además deberíamos permitir la regla de entrada correspondiente en el grupo de seguridad.
 
 <br>
 ___
