@@ -80,7 +80,7 @@ ___
 - Seleccionamos el método de *creación estándar*.
 - Como motor de base de datos elegimos **MySQL**.
 - La plantilla sobre la que se va a basar será **Entorno de pruebas** (las demás no son aptas para el laboratorio).
-- Ponemos un nombre para la instancia de base de datos que debe ser único en nuestra cuenta de AWS.
+- Ponemos un nombre para la instancia de base de datos que debe ser único en nuestra cuenta de AWS. Pon el nombre **bbddapellido**, sustituye apellido por el tuyo
 - Asignamos nombre de usuario administrador y su contraseña.
 - Dejamos las opciones por defecto del tamaño de la instancia y el almacenamiento.
 - En el apartado **Conectividad**:
@@ -127,4 +127,9 @@ ___
 9.- Desde la consola de AWS, **elimina la VPC**.
 
 <br>
-___
+___  
+!!! success "Captura las pantallas"
+    Captura la pantalla de establecimiento de conexión a la base de datos desde la máquina ubuntu
+    Captura la pantalla resumen de la base de datos que muestra el punto de enlace de la conexión
+
+---
