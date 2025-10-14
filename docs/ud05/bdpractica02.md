@@ -95,12 +95,14 @@ ___
 
 6.-	Iniciamos sesión desde la máquina ubuntu y comprobamos que podemos conectarnos a la instancia MySQL, indicando la cadena de conexión y el usuario que hemos definido como administrador. En el parámetro host `-h` ponemos el nombre del servidor y en el parámetro de usuario `-u` el nombre del usuario. Para que nos solicite el password indicamos el parámetro `-p`.
 
+`mysql -h bbddtema5p2.cwhda7oxrrck.us-east-1.rds.amazonaws.com -u admin -p`
+
 Puedes encontrar el parámetro -h
 
 <img src="../images/ud05/bbdd_04.png">
 
 
-`mysql -h bbddtema5p2.cwhda7oxrrck.us-east-1.rds.amazonaws.com -u admin -p`
+
 
 <br>
 ___
@@ -129,7 +131,7 @@ ___
 <br>
 ___  
 !!! success "Captura las pantallas"
-    Captura la pantalla de establecimiento de conexión a la base de datos desde la máquina ubuntu
+    Captura la pantalla de establecimiento de conexión a la base de datos desde la máquina ubuntu  
     Captura la pantalla resumen de la base de datos que muestra el punto de enlace de la conexión
 
 ---
