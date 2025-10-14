@@ -53,7 +53,7 @@ Una aplicación de videojuegos que almacena estadísticas de jugadores en tiempo
 
 ### 3.1 Creación de una instancia RDS
 
-Para crear una instancia DS debes:
+Para crear una instancia RDS debes:
 
 * Dirígirte a **Amazon RDS > Create database**.
 * Seleccionar el motor (p. ej. PostgreSQL).
