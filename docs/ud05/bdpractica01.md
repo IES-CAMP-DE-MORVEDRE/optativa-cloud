@@ -92,7 +92,7 @@ Una vez comprobada la conexión, cerramos la sesión:
 
 !!! warning "Atención"
 
-    Si hemos dejado la opción de**Permitir Acceso Público** como **NO** o no aparece la regla de seguridad del firewall (grupo de seguridad) no podremos conectarnos.
+    Si hemos dejado la opción de **Permitir Acceso Público** como **NO** o no aparece la regla de seguridad del firewall (grupo de seguridad) no podremos conectarnos.
 
 <br>
 ___
