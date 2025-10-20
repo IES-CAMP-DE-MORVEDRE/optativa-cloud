@@ -83,7 +83,7 @@ Si accedemos de nuevo desde un navegador a la url del objeto veremos que continu
 
 5.- Las políticas de acceso a los objetos se pueden controlar de varias maneras (ACLs, Políticas, Roles). Vamos a hacerlo por una opción más sencilla pero que AWS no recomienda: mediante ACLs (*listas de control de acceso*). Para ello el primer paso será habilitar las ACLs que por defecto aparecen deshabilitadas. **Este paso también podríamos haberlo hecho al crear el bucket**.
 
-- Vuelve a selecciona el objeto en S3.
+- Vuelve a seleccionar el bucket en S3.
 - En la pestaña **“Permisos”**, busca la sección **“Propiedades de los objetos”**.
 - Pulsa en **“Editar”** y **habilita las ACLs**.
 
