@@ -1,24 +1,8 @@
----
-layout: page
-title: Bases de Datos
-nav_order: 4
----
 # Bases de Datos Gestionadas (con acceso público)
 
 ## Objetivo de la práctica
 
-Para trabajar con una BBDD en AWS podemos optar por 2 modelos diferenciados según sean *IaaS* o *PaaS*:
 
-- En el primer caso, en un modelo de **Infraestructura como Servicio**, contrataríamos la máquina virtual, en una red virtual e instalaríamos el SGBD que consideráramos oportuno (MySQL, SQL Server, PostgrsSQL, …). En este modelo gestionaríamos nosotros toda la infraestructura.
-- En el caso de optar por un modelo de **Plataforma como Servicio**, contrataríamos directamente el servicio de base de datos, sin preocuparnos por gestionar la infraestructura que hay por debajo (máquina, red, sistema operativo y sistema gestor de base de datos). Es lo que se conoce como un **servicio gestionado**. Las bases de datos gestionadas son servicios de base de datos en la nube en los que el proveedor se encarga de toda la administración y mantenimiento, desde la instalación y configuración inicial hasta la escalabilidad, seguridad, copias de seguridad y actualizaciones.
-
-AWS ofrece varios servicios gestionados de Bases de Datos. Los más populares son:
-
-- **RDS**: Es una base de datos relacional gestionada basada en MySQL, PostrgreSQL, MariaDB, Oracle, Aurora o Microsoft SQL Server.
-- **Amazon Aurora**: Es un SGBD propio de AWS compatible con MySQL y PostgrSQL que ofrece mejores prestaciones que *RDS*.
-- **Amazon DynamoDB**: En este caso se trata de una base de datos NoSQL que soporta modelos de datos clave-valor y documentos.
-- **Amazon Neptune**: Base de datos de grafos.
-- **Amazon Redshift**: Base de datos relacional para almacenes de datos de Big Data.
 
 !!! note "Nota"
 
