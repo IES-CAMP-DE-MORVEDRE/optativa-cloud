@@ -1,12 +1,11 @@
-# Bases de Datos Gestionadas (con acceso público)
+# Bases de Datos RDS con acceso público
 
 ## Objetivo de la práctica
 
+En esta práctica crearemos un servicio de BBDD totalmente gestionado sobre un motor MySQL al que accederemos directamente desde Internet.
 
-
-!!! note "Nota"
-
-    En esta práctica, el servicio gestionado de BBDD que vamos a utilizar es **RDS basado en MySQL**, que permite ejecutar bases de datos MySQL.
+!!! danger "Peligro"
+    El cceso público a una BBDD está totalmente desaconsejado. Es una **práctica muy peligrosa permitir el acceso público a una base de datos**, pero en esta práctica lo haremos para poder conectarnos remotamente desde un cliente de base de datos. 
 
 ## Esquema en AWS
 
@@ -15,6 +14,9 @@
 ## Práctica a Realizar
 
 1.-  Accedemos a la consola, dentro de la categoría Bases de Datos, seleccionamos el recurso **Aurora and RDS**.
+
+!!! note "Nota"
+    RDS permite hasta 6 motores de BBDD distintos. En esta práctica, el servicio gestionado de BBDD que vamos a utilizar es **RDS basado en MySQL**, que permite ejecutar bases de datos MySQL.
 
 <br>
 ___
@@ -36,9 +38,10 @@ ___
 <br>
 
 !!! note "Nota"
-
     Podríamos haber seleccionado el **método de creación rápida**, que nos pide muchos menos parámetros para crear la BBDD, pero nos habría dejado la opción de **Permitir Acceso Público** como **NO**. Ello implica que nos tocaría acceder a modificar los parámetros una vez creada la BBDD para permitir ese acceso público, y además deberíamos permitir la regla de entrada correspondiente en el grupo de seguridad.  
-    Cuando hemos creado el grupo de seguridad, si no modificamos nada, por defecto aws permite el acceso a la BBDD desde una **única IP**. Esto es importante, si luego intentamos acceder desde otro equipo o desde el mismo pero en otra red **(cambia nuestra IP Pública)** no podremos.
+    
+!!! warning "Atención"
+    Cuando hemos creado el grupo de seguridad, si no modificamos nada, por defecto AWS permite el acceso a la BBDD desde una **única IP**. Esto es importante tenerlo en cuenta. Si luego intentamos acceder desde otro equipo, o desde el mismo pero en otra red **(cambia nuestra IP Pública)**, no podremos conectarnos.
 
 <br>
 ___
@@ -83,7 +86,7 @@ ___
 
 7.- Vamos a crear una base de datos con una tabla. Lo vamos a hacer mediante un script de sentencias sql. Para ello comenzamos con la descarga del fichero de creación de la base de datos.
 
-    [Descarga fichero sql](./asir.sql)
+[Descarga fichero sql](./asir.sql)
 
 8.- Ejecutamos las instrucciones SQL que hay en el contenido del fichero descargado. Basta con redireccionar la entrada del comando `mysql` con el fichero descargado de nombre `asir.sql`.
 

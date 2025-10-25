@@ -130,23 +130,38 @@ Aurora también realiza **copias de seguridad continuas en Amazon S3**, sin impa
 
 ## DynamoDB
 
+**DynamoDB** es un servicio administrado de base de datos NoSQL muy rápido y flexible:
 
 - Base de datos **NoSQL totalmente gestionada**.
 - Almacena datos en formato **clave-valor** o **documento**.
 - Escala automáticamente en función de la carga.
 - Latencia baja (milisegundos) ideal para aplicaciones móviles o IoT.
+- Es muy flexible y sin estructura fija (los elementos pueden tener atributos diferentes).
 
-**Ejemplo de uso:**
-Una aplicación de videojuegos que almacena estadísticas de jugadores en tiempo real. DynamoDB gestiona millones de solicitudes sin necesidad de administrar servidores.
+!!! example "Ejemplo de uso"
+    Una aplicación de videojuegos que almacena estadísticas de jugadores en tiempo real. DynamoDB gestiona millones de solicitudes sin necesidad de administrar servidores.
 
-En el caso concreto de **DynamoDB**, la base de datos NoSQL de AWS, se utiliza un esquema de par **clave-valor**. Las bases de datos clave-valor funcionan como un gran diccionario o mapa asociativo: cada dato se guarda con una clave única que sirve para identificarlo y recuperarlo.
+En el caso concreto de **DynamoDB**, se utiliza un esquema de par **clave-valor**. Las bases de datos clave-valor funcionan como un gran diccionario o mapa asociativo, cada dato se guarda con una clave única que sirve para identificarlo y recuperarlo:
 
 - La clave actúa como un identificador (por ejemplo, un número o un nombre).
 - El valor es el dato asociado (que puede ser texto, un objeto, un JSON, etc.).
 
 El acceso es muy rápido porque el sistema busca directamente la clave sin recorrer estructuras complejas.
 
-Ejemplo de una tabla dnminada **usuario**:
+Los componentes principales son:
+
+- las **tablas**: son conjuntos de datos, formada por los elementos.
+- los **elementos**: grupo de atributos que pueden identificar de forma exclusiva a un registro.
+- los **atributos**: elementos de datos fundamental que no es preciso seguir dividiendo.
+
+DynamoDB soporta dos tipos de claves principales:
+
+    La clave de partición es una clave principal simple.
+    La clave de partición y de ordenamiento, también conocidas como clave principal compuesta, ya que está formada por dos atributos.
+
+<img src="../images/ud05/ud05_04.png" width=600>
+
+Ejemplo de una tabla denominada **usuario**:
 
 | **Partition Key (clave primaria)** | **Valor (atributos)**                                                                             |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
