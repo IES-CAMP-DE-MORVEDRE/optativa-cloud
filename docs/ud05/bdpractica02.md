@@ -1,11 +1,6 @@
----
-layout: page
-title: Bases de Datos
-nav_order: 5
----
-# Bases de Datos Gestionadas (sin acceso público)
+# Bases de Datos RDS sin acceso público
 
-## Objetivo del Proyecto
+## Objetivo de la práctica
 
 En esta práctica vamos a crear una base de datos RDS similar a la anterior, pero la vamos a ubicar en una subred privada de manera que no sea accesible desde Internet.
 
@@ -16,6 +11,7 @@ En una subred pública de la VPC crearemos una máquina virtual accesible desde 
 <img src="../images/ud05/BBDD2.drawio.png">
 
 ---
+## Práctica a realizar
 
 ### Creación de la VPC y la máquina EC2
 
@@ -42,7 +38,7 @@ ___
 - La ubicamos en la primera subred pública (*subnet-public1*).
 - Le asignamos una IP Pública para poder conectarnos desde Internet.
 - Nos aseguramos que se crea una regla de firewall para permitir las conexiones por el puerto SSH (22).
-- Para hacer que durante el primer lanzamiento de la instrancia se instale el cliente de MySQL ponemos las siguientes líneas en el apartado de **Datos de usuario**:
+- Para hacer que durante el primer lanzamiento de la instrancia se instale el **cliente de MySQL** ponemos las siguientes líneas en el apartado de **Datos de usuario**:
 
 ```bash
 #!/bin/bash
@@ -84,25 +80,31 @@ ___
 - Asignamos nombre de usuario administrador y su contraseña.
 - Dejamos las opciones por defecto del tamaño de la instancia y el almacenamiento.
 - En el apartado **Conectividad**:
-  - Indicamos que vamos a conectar nuestra base de datos a una instancia EC2 y la seleccionamos en el desplegable.
-  - En el *Grupo de subredes* elegimos la existente que hemos creado en el punto anterior.
-  - NO permitimos el *Acceso Público* a nuestra BBDD.
-  - Elegimos como *grupo de seguridad*, el existente por defecto. Nos informa que además se creará un nuevo grupo de seguridad para conectar la instancia EC2 con la RDS.
+    - Indicamos que vamos a conectar nuestra base de datos a una instancia EC2 y la seleccionamos en el desplegable.
+    - En el *Grupo de subredes* elegimos la existente que hemos creado en el punto anterior.
+    - NO permitimos el *Acceso Público* a nuestra BBDD.
+    - Elegimos como *grupo de seguridad*, el existente por defecto. Nos informa que además se creará un nuevo grupo de seguridad para conectar la instancia EC2 con la RDS.
 - Los demás campos los dejamos por defecto.
 
 <br>
 ___
 
+### Conexión a la Base de Datos desde la máquina EC2
+
 6.-	Iniciamos sesión desde la máquina ubuntu y comprobamos que podemos conectarnos a la instancia MySQL, indicando la cadena de conexión y el usuario que hemos definido como administrador. En el parámetro host `-h` ponemos el nombre del servidor y en el parámetro de usuario `-u` el nombre del usuario. Para que nos solicite el password indicamos el parámetro `-p`.
 
 `mysql -h bbddtema5p2.cwhda7oxrrck.us-east-1.rds.amazonaws.com -u admin -p`
 
-Puedes encontrar el parámetro -h
+Puedes encontrar el parámetro `-h` en la pestaña de **conectividad y seguridad**de la base de datos.
 
 <img src="../images/ud05/bbdd_04.png">
 
+<br>
+___  
+!!! success "Captura las pantallas"
+    Captura la pantalla resumen de la base de datos que muestra el **punto de enlace de la conexión**.
 
-
+    Captura la pantalla de **establecimiento de conexión** a la base de datos **desde la máquina ubuntu**. 
 
 <br>
 ___
@@ -128,10 +130,3 @@ ___
 
 9.- Desde la consola de AWS, **elimina la VPC**.
 
-<br>
-___  
-!!! success "Captura las pantallas"
-    Captura la pantalla de establecimiento de conexión a la base de datos desde la máquina ubuntu  
-    Captura la pantalla resumen de la base de datos que muestra el punto de enlace de la conexión
-
----

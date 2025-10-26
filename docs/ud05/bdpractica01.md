@@ -13,6 +13,8 @@ En esta práctica crearemos un servicio de BBDD totalmente gestionado sobre un m
 
 ## Práctica a Realizar
 
+### Creación de la Base de Datos RDS
+
 1.-  Accedemos a la consola, dentro de la categoría Bases de Datos, seleccionamos el recurso **Aurora and RDS**.
 
 !!! note "Nota"
@@ -69,6 +71,8 @@ ___
 <br>
 ___
 
+### Conexión a la BBDD
+
 6.-	En nuestra máquina local establacemos una conexión mediante un cliente de MySQL de línea de comandos, indicando la cadena de conexión y el usuario que hemos definido como administrador. En el parámetro host `-h` ponemos el nombre del servidor (endpoint que hemos copiado en el portapapeles) y en el parámetro de usuario `-u` el nombre del usuario. Para que nos solicite el password indicamos el parámetro `-p`.
 
 `mysql -h database-jrpm.cruqs8qiedha.us-east-1.rds.amazonaws.com -u admin -p`
@@ -112,8 +116,9 @@ exit;
 <br>
 
 !!! success "Captura las pantallas"
-    Captura la pantalla de establecimiento de conexión a la base de datos  
-    Captura la pantalla resultado de hacer la select de clientes
+    Captura la pantalla de establecimiento de conexión a la base de datos.
+    
+    Captura la pantalla resultado de hacer la select de clientes.
 
 ---
 
@@ -121,6 +126,8 @@ exit;
 
 <br>
 ___
+
+### Eliminación de los recursos creados
 
 11.- Desde la consola de AWS, **elimina el servidor de BBDD creado para asegurarnos que no dejamos ningún recurso consumiendo crédito**. No crees ninguna instantánea final ni conserves las copias de seguridad.
 

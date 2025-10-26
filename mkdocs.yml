@@ -28,6 +28,7 @@ nav:
       - "Capa de base de datos": "ud05/ud5.md"
       - "Práctica 1. Base de datos con acceso público": "ud05/bdpractica01.md"
       - "Práctica 2. Base de datos privada": "ud05/bdpractica02.md"
+      - "Práctica 3. Clúster de Base de Datos Aurora": "ud05/bdpractica03.md"
   
 
 theme:

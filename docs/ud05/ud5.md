@@ -156,8 +156,8 @@ Los componentes principales son:
 
 DynamoDB soporta dos tipos de claves principales:
 
-    La clave de partición es una clave principal simple.
-    La clave de partición y de ordenamiento, también conocidas como clave principal compuesta, ya que está formada por dos atributos.
+- La clave de partición es una clave principal simple.
+- La clave de partición y de ordenamiento, también conocidas como clave principal compuesta, ya que está formada por dos atributos.
 
 <img src="../images/ud05/ud05_04.png" width=600>
 
