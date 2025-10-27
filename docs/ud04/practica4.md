@@ -65,7 +65,7 @@
 8.- Crea un punto de montaje local:
 
    ```bash
-   sudo mkdir /efs
+   sudo mkdir /mnt/efs
    ```
 9.- Monta el sistema de archivos EFS (pega el ID copiado desde la consola en el paso 3, por ejemplo `fs-0a5162c49f76a0c1e.efs.us-east-1.amazonaws.com`):
 
@@ -96,7 +96,7 @@
 13.- Crea el mismo punto de montaje local:
 
    ```bash
-   sudo mkdir /efs
+   sudo mkdir /mnt/efs
    ```
 14.- Monta el sistema de archivos EFS (pega el ID copiado desde la consola en el paso 3, por ejemplo `fs-0a5162c49f76a0c1e.efs.us-east-1.amazonaws.com`):
 
