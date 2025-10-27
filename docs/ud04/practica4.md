@@ -87,7 +87,7 @@
 
 ## Montar el mismo EFS en otra instancia
 
-12.- Conéctate a la primera instancia EC2 (`Servidor-A`) e instala también el cliente NFS:
+12.- Conéctate a la segunda instancia EC2 (`Servidor-B`) e instala también el cliente NFS:
 
    ```bash
    sudo apt update
