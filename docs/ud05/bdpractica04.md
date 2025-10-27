@@ -36,7 +36,7 @@ Descarga el scrip cargar-datos.sh y el archivo .json con los items
 
 [Descargar cargar datos](./dynamodb/cargar-datos.sh)  
 
-[Descargar items](./dynamodb/elementos/items1.json)
+[Descargar items](./dynamodb/elementos/items-1.json)
 
 Ahora ejecuta el script que poblará la base de datos de aws con la información que tiene en el archivo items-1.json
 
