@@ -29,6 +29,8 @@ nav:
       - "Práctica 1. Base de datos con acceso público": "ud05/bdpractica01.md"
       - "Práctica 2. Base de datos privada": "ud05/bdpractica02.md"
       - "Práctica 3. Clúster de Base de Datos Aurora": "ud05/bdpractica03.md"
+  - "UD07. Modelo de seguridad en AWS":
+      - "Modelo de seguridad en AWS": "ud07/ud07.md"
   
 
 theme:
