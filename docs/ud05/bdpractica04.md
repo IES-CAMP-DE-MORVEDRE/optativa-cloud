@@ -12,24 +12,6 @@ A continuación, se debe configurar la AWS CLI con las credenciales del AWS Acad
 
 Como ya sabemos copiamos las credenciales al archivo credentials de aws
 
-### INSTALACION herramienta NoSQL Workbench
-
-Una vez configuradas las credenciales, procederemos a instalar la herramienta NoSQL Workbench, que es una herramienta para escritorio que permite operar gráficamente con bases de datos en Amazon DynamoDB y Amazon Keyspaces. Para ello, seguiremos las indicaciones del siguiente enlace, desde donde se puede descargar e instalar el software de manera gratuita:
-
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html
-
-En mi caso he descargado el paquete para ubuntu que es una archivo `.appimage`. Para instalar un paquete .appimage recuerda que primero debes darle permios de ejecución
-
-```
- chmod +x nombre_del_archivo.appimage
-```
-
-y después ejecutas desde la terminal
-
-```
-./nombre_del_archivo.appimage
-```
-
 ### CREACIÓN DE LA TABLA DE AMAZON DYNAMO DB
 
 Para crear la tabla de Amazon DynamoDB de esta práctica, accederemos a la consola de Amazon DynamoDB y, desde la opción Tables del menú lateral, presionamos el botón Create table:
