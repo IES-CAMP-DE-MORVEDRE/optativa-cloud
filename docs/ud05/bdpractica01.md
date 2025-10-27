@@ -5,7 +5,7 @@
 En esta práctica crearemos un servicio de BBDD totalmente gestionado sobre un motor MySQL al que accederemos directamente desde Internet.
 
 !!! danger "Peligro"
-    El cceso público a una BBDD está totalmente desaconsejado. Es una **práctica muy peligrosa permitir el acceso público a una base de datos**, pero en esta práctica lo haremos para poder conectarnos remotamente desde un cliente de base de datos. 
+    El acceso público a una BBDD está totalmente desaconsejado. Es una **práctica muy peligrosa permitir el acceso público a una base de datos**, pero en esta práctica lo haremos para poder conectarnos remotamente desde un cliente de base de datos. 
 
 ## Esquema en AWS
 
