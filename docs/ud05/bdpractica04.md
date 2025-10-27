@@ -60,7 +60,7 @@ Ahora ejecuta el script que poblará la base de datos de aws con la información
 
 `./cargar-datos.sh`
 
-Tras esta operación, podremos volver a la Consola de Administración del servicio Amazon DynamoDB y, entrando en la tabla curso podremos acceder al enlace del menú lateral Explore ítems, seleccionar la tabla curso. Aparecerán todos los elementos añadidos por el script lanzado:
+Tras esta operación, podremos volver a la Consola de Administración del servicio Amazon DynamoDB y, entrando en la tabla curso podremos acceder al enlace del menú lateral Explorar elementos, seleccionar la tabla curso. Aparecerán todos los elementos añadidos por el script lanzado:
 
 <img src="../images/ud05/bbdd-dyn1.png">
 
@@ -128,8 +128,8 @@ aws dynamodb put-item --table-name curso --item file://operacion2.json
 
 #### Las siguientes operaciones realizalas tú:
 
-**Operación** 3: Eliminar el elemento correspondiente al alumno de nombre Rosa Mosqueta Lledo que cursa el módulo de Historia
-**Operación** 4: Actualiza el elemento correspondiente de la tabla, asumiendo que el alumno Rafa Raqueta hay que cambiarle la nota vamos a ponerle un 9
+**Operación** 3: Eliminar el elemento correspondiente al alumno de nombre Rosa Mosqueta Lledo que cursa el módulo de Historia  
+**Operación** 4: Actualiza el elemento correspondiente de la tabla, asumiendo que el alumno Rafa Raqueta hay que cambiarle la nota vamos a ponerle un 9  
 **Operación** 5: Obtener las notas y nombres de los alumnos que cursan el módulo de Deportes
 `<br>`
 
