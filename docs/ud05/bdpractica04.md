@@ -50,14 +50,11 @@ Tras el proceso de creación, podremos comprobar en la Consola de Administració
 
 Por último, vamos a poblar nuestra tabla de Amazon DynamoDB. Para ello ejecutamos el script que realizará tal función:
 
-Descarga el scrip cargar-datos.sh y el arvhivo .json los los datos
+Descarga el scrip cargar-datos.sh y el archivo .json con los items
 
-```
-[Descargar cargar datos](../ud05/dynamodb/cargar-datos.sh)  
+[Descargar cargar datos](./dynamodb/cargar-datos.sh)  
 
-[Descargar items](../ud05/dynamodb/elementos/items1.json)
-
-```
+[Descargar items](./dynamodb/elementos/items1.json)
 
 Ahora ejecuta el script que poblará la base de datos de aws con la información que tiene en el archivo items-1.json
 
@@ -139,7 +136,7 @@ aws dynamodb put-item --table-name curso --item file://operacion2.json
 ---
 
 !!! success "Entrega"
-    Contenido del .json y comando ejecutado para realizar las operaciones 3, 4 y 5
+    Contenido del .json y comando ejecutado para realizar las operaciones 3, 4 y 5  
     Captura las pantallas con el resultado de realizar cada una de las operaciones
 
 ---
