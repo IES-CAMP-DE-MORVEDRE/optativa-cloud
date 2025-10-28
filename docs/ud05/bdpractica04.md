@@ -12,24 +12,6 @@ A continuación, se debe configurar la AWS CLI con las credenciales del AWS Acad
 
 Como ya sabemos copiamos las credenciales al archivo credentials de aws
 
-### INSTALACION herramienta NoSQL Workbench
-
-Una vez configuradas las credenciales, procederemos a instalar la herramienta NoSQL Workbench, que es una herramienta para escritorio que permite operar gráficamente con bases de datos en Amazon DynamoDB y Amazon Keyspaces. Para ello, seguiremos las indicaciones del siguiente enlace, desde donde se puede descargar e instalar el software de manera gratuita:
-
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html
-
-En mi caso he descargado el paquete para ubuntu que es una archivo `.appimage`. Para instalar un paquete .appimage recuerda que primero debes darle permios de ejecución
-
-```
- chmod +x nombre_del_archivo.appimage
-```
-
-y después ejecutas desde la terminal
-
-```
-./nombre_del_archivo.appimage
-```
-
 ### CREACIÓN DE LA TABLA DE AMAZON DYNAMO DB
 
 Para crear la tabla de Amazon DynamoDB de esta práctica, accederemos a la consola de Amazon DynamoDB y, desde la opción Tables del menú lateral, presionamos el botón Create table:
@@ -50,20 +32,17 @@ Tras el proceso de creación, podremos comprobar en la Consola de Administració
 
 Por último, vamos a poblar nuestra tabla de Amazon DynamoDB. Para ello ejecutamos el script que realizará tal función:
 
-Descarga el scrip cargar-datos.sh y el arvhivo .json los los datos
+Descarga el scrip cargar-datos.sh y el archivo .json con los items
 
-```
-[Descargar cargar datos](../ud05/dynamodb/cargar-datos.sh)  
+[Descargar cargar datos](./dynamodb/cargar-datos.sh)  
 
-[Descargar items](../ud05/dynamodb/elementos/items1.json)
-
-```
+[Descargar items](./dynamodb/elementos/items-1.json)
 
 Ahora ejecuta el script que poblará la base de datos de aws con la información que tiene en el archivo items-1.json
 
 `./cargar-datos.sh`
 
-Tras esta operación, podremos volver a la Consola de Administración del servicio Amazon DynamoDB y, entrando en la tabla curso podremos acceder al enlace del menú lateral Explore ítems, seleccionar la tabla curso. Aparecerán todos los elementos añadidos por el script lanzado:
+Tras esta operación, podremos volver a la Consola de Administración del servicio Amazon DynamoDB y, entrando en la tabla curso podremos acceder al enlace del menú lateral Explorar elementos, seleccionar la tabla curso. Aparecerán todos los elementos añadidos por el script lanzado:
 
 <img src="../images/ud05/bbdd-dyn1.png">
 
@@ -131,15 +110,15 @@ aws dynamodb put-item --table-name curso --item file://operacion2.json
 
 #### Las siguientes operaciones realizalas tú:
 
-**Operación** 3: Eliminar el elemento correspondiente al alumno de nombre Rosa Mosqueta Lledo que cursa el módulo de Historia
-**Operación** 4: Actualiza el elemento correspondiente de la tabla, asumiendo que el alumno Rafa Raqueta hay que cambiarle la nota vamos a ponerle un 9
+**Operación** 3: Eliminar el elemento correspondiente al alumno de nombre Rosa Mosqueta Lledo que cursa el módulo de Historia  
+**Operación** 4: Actualiza el elemento correspondiente de la tabla, asumiendo que el alumno Rafa Raqueta hay que cambiarle la nota vamos a ponerle un 9  
 **Operación** 5: Obtener las notas y nombres de los alumnos que cursan el módulo de Deportes
 `<br>`
 
 ---
 
 !!! success "Entrega"
-    Contenido del .json y comando ejecutado para realizar las operaciones 3, 4 y 5
+    Contenido del .json y comando ejecutado para realizar las operaciones 3, 4 y 5  
     Captura las pantallas con el resultado de realizar cada una de las operaciones
 
 ---
