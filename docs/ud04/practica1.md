@@ -57,7 +57,7 @@ Creación y gestión de un bucket en Amazon S3: subida de objetos, control de pe
 <img src="../images/ud04/practica1/bucket03.png">
 
 - Abre un **navegador web** y pega la URL.
-- Comprueba que la imagen no se muestra correctamente alno disponer de permisos.
+- Comprueba que la imagen no se muestra correctamente al no disponer de permisos.
 
 <img src="../images/ud04/practica1/bucket04.png">
 
@@ -101,7 +101,7 @@ Si accedemos de nuevo desde un navegador a la url del objeto veremos que continu
 
 
 !!! success "Captura la pantalla"
-    Captura la pantalla en la que se muestre que ha funcionado el aaceso desde el navegador a la imagen. Debe verse la url del objeto y la fotografía mostrada dentro del navegador.
+    Captura la pantalla en la que se muestre que ha funcionado el acceso desde el navegador a la imagen. Debe verse la url del objeto y la fotografía mostrada dentro del navegador.
 
 ---
 
