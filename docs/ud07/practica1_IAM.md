@@ -74,6 +74,6 @@ La empresa "TechEdu" quiere gestionar el acceso a materiales en un bucket S3:
 ```
 
 !!! success "Captura las pantallas"
-    Captura la pantalla donde se vea que `alumno1` puede leer pero no subir ni borrar.
-    Captura la pantalla donde se vea que`profesor1` puede leer, subir y borrar.
-    Captura la pantalla donde se vea que `invitado1` recibe *Access Denied* en todo.
+    Captura la pantalla donde se vea que `alumno1` puede leer pero no subir ni borrar.  
+    Captura la pantalla donde se vea que`profesor1` puede leer, subir y borrar.  
+    Captura la pantalla donde se vea que `invitado1` recibe *Access Denied* en todo.  
