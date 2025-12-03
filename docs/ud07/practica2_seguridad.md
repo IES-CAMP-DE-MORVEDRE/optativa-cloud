@@ -80,7 +80,7 @@ aws s3 ls s3://netsecure-app-storage
 
 
 !!! success "Captura las pantallas"   
-    Acceso por ssh a la ec2  
+    Acceso por ssh a la EC2  
     Acceso a S3 sin claves  
-    Resultado de realizar acciones en IAM/EC" y observar eventos en CloudTrail → Event History  
+    Resultado de realizar acciones en IAM/EC2" y observar eventos en CloudTrail → Event History  
 
