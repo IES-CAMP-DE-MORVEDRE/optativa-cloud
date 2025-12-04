@@ -33,7 +33,9 @@ nav:
       - "Práctica 2. Base de datos privada": "ud05/bdpractica02.md"
       - "Práctica 3. Clúster de Base de Datos Aurora": "ud05/bdpractica03.md"
       - "Práctica 4. Base de datos NoSQL": "ud05/bdpractica04.md"
-      
+  - "UD06. Microservicios y arquitectura sin servidor":
+      - "Microservicios y arquitectura sin servidor": "ud06/ud06.md"
+      - "Práctica 1. Hello Lambda!": "ud06/practica1.md"
   - "UD07. Modelo de seguridad en AWS":
       - "Modelo de seguridad en AWS": "ud07/ud07.md"
   
