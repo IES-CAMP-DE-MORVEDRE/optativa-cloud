@@ -12,7 +12,7 @@ Creación  de una función Lambda y activación mediante la invocación de una u
 
 ### Creación de la función
 
-1.- crea una nueva función Lambda **desde cero**.
+1.- Crea una nueva función Lambda **desde cero**.
 
 - Asigna un nombre de función que contenga tus iniciales.
 - El lenguaje de programación será **Python 3.14**
