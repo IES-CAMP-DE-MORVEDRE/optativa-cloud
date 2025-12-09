@@ -36,6 +36,11 @@ nav:
   - "UD06. Microservicios y arquitectura sin servidor":
       - "Microservicios y arquitectura sin servidor": "ud06/ud06.md"
       - "Práctica 1. Hello Lambda!": "ud06/practica1.md"
+      - "Práctica 2. Función Lambda con url de activación": "ud06/practica2.md"
+      - "Práctica 3. Función Lambda con desencadenador": "ud06/practica3.md"
+      - "Práctica 4. Función Lambda con parámetros": "ud06/practica4.md"
+      - "Práctica 5. Función Lambda con API Gateway": "ud06/practica5.md"
+      - "Práctica 6. Función Lambda con API Gateway y DynamoDB": "ud06/practica6.md"
   - "UD07. Modelo de seguridad en AWS":
       - "Modelo de seguridad en AWS": "ud07/ud07.md"
   
