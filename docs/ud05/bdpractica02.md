@@ -61,7 +61,7 @@ El primer requisito para crear una base de datos RDS es definir un **grupo de su
 !!! info
     Un grupo de subredes de bases de datos es una colección de subredes dentro de una VPC que RDS utiliza para desplegar instancias de bases de datos. Permite especificar en qué subredes y zonas de disponibilidad se pueden alojar las bases de datos. Es necesario que al menos contenga 2 AZ, por eso la necesidad de crear nuestra VPC con al menos 2 zonas de disponibilidad, aunque solamente utilicemos una.
 
-4-	Accedemos a la consola de RDS y creamos **grupo de subredes** con las 2 subredes privadas:
+4-	Accedemos a la consola Aurora and RDS y creamos **grupo de subredes** con las 2 subredes privadas:
 
 - Seleccionamos las 2 zonas de disponibilidad de nuestra VPC (en principio serán *us-east-1a* y *us-east-1b*).
 - Seleccionamos las 2 subredes privadas (*subnet-private1* y *subnet-private2*), puesto que deseamos crear nuestra base de datos dentro de una de las subredes privadas.
