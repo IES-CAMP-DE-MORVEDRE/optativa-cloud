@@ -43,7 +43,8 @@ nav:
       - "Práctica 6. Función Lambda con API Gateway y DynamoDB": "ud06/practica6.md"
   - "UD07. Modelo de seguridad en AWS":
       - "Modelo de seguridad en AWS": "ud07/ud07.md"
-  
+  - "UD08. Monitorización en AWS":
+      - "Monitorización en AWS": "ud08/ud08.md"
 
 theme:
     language: es
