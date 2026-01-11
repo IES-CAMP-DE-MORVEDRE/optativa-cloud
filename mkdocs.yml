@@ -45,6 +45,9 @@ nav:
       - "Modelo de seguridad en AWS": "ud07/ud07.md"
   - "UD08. Monitorización en AWS":
       - "Monitorización en AWS": "ud08/ud08.md"
+      - "Práctica 1. Métricas en EC2": "ud08/practica1.md"
+      - "Práctica 2. Alarmas en Cloudwatch": "ud08/practica2.md"
+      - "Práctica 3. Logs en Cloudwatch": "ud08/practica3.md"
 
 theme:
     language: es

@@ -88,3 +88,6 @@ Podemos personalizar también la unidad de tiempo que deseamos mostrar y el tiem
 
 !!! success "Captura la pantalla"
     Captura la pantalla en la que se vea el panel creado con varios widgets .
+
+!!! warning "No borres ningún recurso"
+    Puesto que vamos a utilizar la instancia EC2 en la siguiente práctica, no borres ningún recurso credo en esta práctica.
