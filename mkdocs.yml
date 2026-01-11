@@ -48,6 +48,7 @@ nav:
       - "Práctica 1. Métricas en EC2": "ud08/practica1.md"
       - "Práctica 2. Alarmas en Cloudwatch": "ud08/practica2.md"
       - "Práctica 3. Logs en Cloudwatch": "ud08/practica3.md"
+      - "Práctica 4. Métricas RDS en Cloudwatch": "ud08/practica4.md"
 
 theme:
     language: es

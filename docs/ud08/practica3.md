@@ -1,4 +1,4 @@
-# Práctica 3. Logs
+# Práctica 3. Logs en CloudWacth
 
 Visualización de logs en CloudWacth
 
@@ -89,3 +89,45 @@ Cada uno de estos eventos tiene una información relacionada con distintos event
 
 !!! success "Captura la pantalla"
     Captura la pantalla en la que se vea los eventos de registro de un flujo de registro en concreto.
+
+<br>
+
+---
+
+### Consultas con Logs Insights
+
+**CloudWatch Logs Insights** es una herramienta de AWS que permite **buscar, filtrar y analizar de forma rápida los logs almacenados en CloudWatch**, usando un lenguaje de consultas sencillo. Facilita encontrar errores, analizar ejecuciones y obtener estadísticas sin necesidad de descargar los logs.
+
+Utiliza un lenguaje de consultas propio de AWS, específico para el análisis de logs. Es un lenguaje declarativo y orientado a búsquedas, inspirado en SQL pero **no es SQL estándar**, diseñado para filtrar, ordenar y obtener estadísticas a partir de registros de texto de forma eficiente.
+
+3.- En el panel lateral del servicio **CloudWatch** accede al menú **Registros** --> **Logs Insights**:
+
+- Selecciona un grupo de registro de los asociados a la ejecución de las funciones lambda que tenías.
+- Especifica un rango de tiempo (por defecto aparece seleccionado una hora) que incluya la fecha de la ejecución de la función lambda.
+- Deja el query que viene por defecto:
+```
+fields @timestamp, @message
+| sort @timestamp desc
+| limit 10000
+```
+- Ejecuta la consulta.
+
+Deben aparecer los eventos de registro asociados al grupo de registros seleccionados ordenados por fecha más reciente.
+
+Prueba a cambiar la consulta:
+
+- Logs en los que aparece la palabra "error":
+```
+fields @timestamp, @message
+| filter @message =~ /error/
+| sort @timestamp desc
+```
+- Ver duración de las ejecuciones de la función lambda:
+```
+filter @type = "REPORT"
+| stats avg(@duration), max(@duration)
+```
+
+
+!!! success "Captura la pantalla"
+    Captura la pantalla en la que se vea la ejcución satisfactoria de alguna consulta.

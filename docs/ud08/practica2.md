@@ -1,4 +1,4 @@
-# Práctica 2. Alarmas
+# Práctica 2. Alarmas en CloudWatch
 
 Creación de alarmas asociadas a EC2
 
