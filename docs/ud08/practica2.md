@@ -61,6 +61,6 @@ Creación de alarmas asociadas a EC2
     Captura la pantalla en la que se vea el panel de la alarma, con la zona roja en el momento del estrés, y otra captura con el correo recibido.
 
 !!! note "Interpretación de la gráfica"
-    Es posible que veamos en la gráfica que el % de utilización de la CPU no ha alcanzado la línea roja (70%) y en cambio sí que se ha disparado la alarma. Esto es debido a que el gráfico saca medias de cada 5 minutos, y en cambio la alarma está muestreando cada minuto, lo que puede dar lugar a situaciones de que durante 2 minutos la máquina está al 100% y por tanto se dispara la alarma, pero en el conjunto de los 5 minutos la utilización no ha llegado al 70% en total.
+    Es posible que veamos en la gráfica que el % de utilización de la CPU no ha alcanzado la línea roja (70%) y en cambio sí que se ha disparado la alarma. Esto es debido a que el gráfico saca medias cada 5 minutos, y en cambio la alarma está muestreando cada minuto, lo que puede dar lugar a situaciones de que durante 2 minutos la máquina está al 100% y por tanto se dispara la alarma, pero en el conjunto de los 5 minutos la utilización no ha llegado al 70% en total.
 
 <img src="../images/ud08/practica2/ud08_p01.png">
