@@ -25,7 +25,7 @@ Creación de alarmas asociadas a EC2
 - Selecciona una métrica.
     - De las métricas disponibles selecciona las de **EC2**.
     - Pulsa sobre **Métricas por instancia**.
-    - Selcciona la métrica **CPUUtilization** asociada a la instancia *Servidor-Web* (se puede filtar por *InstanceId*).
+    - Selecciona la métrica **CPUUtilization** asociada a la instancia *Servidor-Web* (se puede filtar por *InstanceId*).
 - Una vez aparezca el gráfico, vamos a configurar las siguientes condiciones:
     - Estadística: **Media**
     - Periodo: **1 minuto**
