@@ -49,6 +49,8 @@ nav:
       - "Práctica 2. Alarmas en Cloudwatch": "ud08/practica2.md"
       - "Práctica 3. Logs en Cloudwatch": "ud08/practica3.md"
       - "Práctica 4. Métricas RDS en Cloudwatch": "ud08/practica4.md"
+  - "UD09. Escalabilidad y Alta Disponibilidad en AWS":
+      - "Escalabilidad y Alta Disponibilidad en AWS": "ud09/ud09.md"
 
 theme:
     language: es
