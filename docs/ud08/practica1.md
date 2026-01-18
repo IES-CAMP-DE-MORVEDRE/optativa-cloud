@@ -29,7 +29,7 @@ Análisis métricas EC2
 #!/bin/bash
 apt update
 apt install -y apache2
-git clone https://github.com/jrpellicer/hello-cloud.git
+git clone https://github.com/IES-CAMP-DE-MORVEDRE/hello-cloud.git
 cp hello-cloud/* /var/www/html -R
 ```
 

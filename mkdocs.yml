@@ -51,6 +51,7 @@ nav:
       - "Práctica 4. Métricas RDS en Cloudwatch": "ud08/practica4.md"
   - "UD09. Escalabilidad y Alta Disponibilidad en AWS":
       - "Escalabilidad y Alta Disponibilidad en AWS": "ud09/ud09.md"
+      - "Práctica 1. Autoescalado de EC2": "ud09/practica1.md"
 
 theme:
     language: es
