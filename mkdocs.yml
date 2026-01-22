@@ -24,9 +24,9 @@ nav:
       - "Práctica 3. Gestión de volúmenes EBS": "ud04/practica3.md"
       - "Práctica 4. Almacenamiento compartido con EFS": "ud04/practica4.md"
       - "Práctica 5. CI/CD con GitHub Actions sobre S3": "ud04/practica5.md"
-  - "Proyectos":
+  - "Proyectos 1ª Evaluación":
       - "Infraestructura segura de servidores": "pr01/pr01.md"
-      - "Vpc con Subredes y Base de datos RDS": "pr01/pr02.md"
+      - "VPC con Subredes y Base de datos RDS": "pr01/pr02.md"
   - "UD05. Capa de Base de Datos":
       - "Capa de base de datos": "ud05/ud5.md"
       - "Práctica 1. Base de datos con acceso público": "ud05/bdpractica01.md"
@@ -52,6 +52,8 @@ nav:
   - "UD09. Escalabilidad y Alta Disponibilidad en AWS":
       - "Escalabilidad y Alta Disponibilidad en AWS": "ud09/ud09.md"
       - "Práctica 1. Autoescalado de EC2": "ud09/practica1.md"
+  - "Proyectos 2ª Evaluación":
+      - "Proyecto ASIR presencial": "pr02/pr02_asir.md"
 
 theme:
     language: es
