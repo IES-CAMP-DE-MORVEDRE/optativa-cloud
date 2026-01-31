@@ -54,6 +54,7 @@ nav:
       - "Práctica 1. Autoescalado de EC2": "ud09/practica1.md"
   - "Proyectos 2ª Evaluación":
       - "Proyecto ASIR presencial": "pr02/pr02_asir.md"
+      - "Proyecto DAW presencial": "pr02/pr02_DAW_T.md"
 
 theme:
     language: es
