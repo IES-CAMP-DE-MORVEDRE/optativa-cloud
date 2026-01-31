@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto DAW · Cloud AWS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+
+<h1>Proyecto DAW · 2ª Evaluación</h1>
+
+<h2>1. Objetivo del proyecto</h2>
+<p>Diseñar y desplegar en <strong>AWS</strong> una arquitectura cloud completa que permita:</p>
+<ul>
+  <li>Obtener datos desde una API pública externa.</li>
+  <li>Almacenar los datos en una base de datos en una subred privada.</li>
+  <li>Mostrar los datos mediante una aplicación web accesible desde Internet.</li>
+</ul>
+
+<h2>2. Arquitectura mínima obligatoria</h2>
+
+<h3>2.1 Infraestructura de red</h3>
+<ul>
+  <li>VPC propia del proyecto.</li>
+  <li>Subred pública con frontend web e Internet Gateway.</li>
+  <li>Subred privada con microservicio y base de datos.</li>
+  <li>Tablas de rutas configuradas correctamente.</li>
+  <li>Grupos de seguridad diferenciados (frontend, backend, BD).</li>
+</ul>
+<p><strong>La base de datos no debe ser accesible desde Internet.</strong></p>
+
+<h2>3. Base de datos</h2>
+<ul>
+  <li>Ubicada en subred privada.</li>
+  <li>RDS (MySQL/PostgreSQL) o EC2 con motor instalado.</li>
+  <li>Acceso restringido al backend.</li>
+  <li>Al menos un backup o snapshot.</li>
+</ul>
+
+<h2>4. Microservicio de ingesta</h2>
+<ul>
+  <li>Consumo de API pública externa.</li>
+  <li>Procesado de datos (JSON / CSV).</li>
+  <li>Inserción en base de datos.</li>
+  <li>Ejecución periódica.</li>
+  <li>API key en variables de entorno.</li>
+  <li>Desplegado en subred privada.</li>
+</ul>
+
+<h2>5. Aplicación web pública</h2>
+<ul>
+  <li>Desplegada en subred pública.</li>
+  <li>Muestra datos reales desde la BD.</li>
+  <li>Acceso vía navegador.</li>
+  <li>Apache o S3.</li>
+</ul>
+
+<h2>6. Seguridad y observabilidad</h2>
+<ul>
+  <li>Grupos de seguridad mínimos.</li>
+  <li>Gestión correcta de credenciales.</li>
+  <li>Logs básicos.</li>
+  <li>Métrica o alarma en CloudWatch.</li>
+</ul>
+
+<h2>7. Entregables</h2>
+<ol>
+  <li>Diagrama de arquitectura.</li>
+  <li>Código fuente + README.</li>
+  <li>Capturas comentadas.</li>
+  <li>Documento técnico (máx. 2 páginas).</li>
+  <li>URL o IP pública funcional.</li>
+</ol>
+
+<h2>8. Normas generales</h2>
+<ul>
+  <li>APIs gratuitas.</li>
+  <li>Frecuencia limitada.</li>
+  <li>API distinta por grupo.</li>
+  <li>Copias: calificación 0.</li>
+</ul>
+
+<h2>9. APIs autorizadas</h2>
+<p>Listado idéntico al enunciado oficial.</p>
+
+<h2>10. Criterios de evaluación</h2>
+<ul>
+  <li>Infraestructura y redes: 25 %</li>
+  <li>Microservicio: 25 %</li>
+  <li>Base de datos: 20 %</li>
+  <li>Seguridad: 15 %</li>
+  <li>Documentación: 15 %</li>
+</ul>
+
+</body>
+</html>
