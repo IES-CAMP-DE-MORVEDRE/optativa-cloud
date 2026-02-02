@@ -15,7 +15,7 @@ Como administradores de sistemas queremos desplegar y gestionar una infraestruct
 
 Diseñar e implementar una arquitectura en AWS que permita:
 
-- Alojar una **página web en PHP** capaz de leer datos desde una base de datos.
+- Alojar una **página web en PHP** capaz de leer datos desde una base de datos y mostrar elementos multimedia alojados en un bucket S3.
 - Exponer una **API REST** que permita insertar datos en la base de datos.
 - Garantizar **alta disponibilidad** tanto en la capa web como en la capa de datos.
 - Garantizar **autoescalado** en la capa web para evitar pérdidas de rendimiento en la experiencia de usuario.
@@ -26,6 +26,7 @@ Diseñar e implementar una arquitectura en AWS que permita:
 - La aplicación web deberá estar desarrollada en **PHP**.
 - La web deberá **consultar y mostrar** los datos almacenados en la base de datos.
 - No se permitirá la inserción directa de datos en la base de datos desde la web.
+- Las imágenes y elementos multimedia de la página web los debe recuperar de un **bucket S3**.
 
 ### 3.2 API de inserción de datos
 
