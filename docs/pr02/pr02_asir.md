@@ -26,7 +26,7 @@ Diseñar e implementar una arquitectura en AWS que permita:
 - La aplicación web deberá estar desarrollada en **PHP**.
 - La web deberá **consultar y mostrar** los datos almacenados en la base de datos.
 - No se permitirá la inserción directa de datos en la base de datos desde la web.
-- Las imágenes y elementos multimedia de la página web los debe recuperar de un **bucket S3**.
+- Los contenidos estáticos (las imágenes y elementos multimedia) de la página web los debe recuperar de un **bucket S3**.
 
 ### 3.2 API de inserción de datos
 
