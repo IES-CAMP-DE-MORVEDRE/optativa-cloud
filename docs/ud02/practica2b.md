@@ -126,3 +126,13 @@ Crearemos un fichero de script con el siguiente comando:
     --region us-east-1    
     ```
 Una vez guardado, damos permiso de ejecución (en Linux) y lo ejecutamos anteponiendo `./` al nombre del script (en Windows y Linux).
+
+---
+
+## Liberación de recursos
+
+Una vez finalizada la práctica hay que eliminar los recursos creados para que no nos consuman crédito:
+
+- Termina todas la instancias. En el panel de EC2, con las instancias seleccionadas, pulsamos sobre la Acción **Terminar (eliminar) instancia**. Nos informa que el volumen EBS asociado también se eliminará.
+
+Recuerda finalizar el laboratorio cuando acabes con las prácticas.
