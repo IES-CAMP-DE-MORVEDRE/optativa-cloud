@@ -57,7 +57,7 @@ En esta práctica vamos a hacer un script utilizando CloudShell para crear una m
 
     Recuerda que como usuario de aws academy debes utilizar la región **us-east-1** que te permite crear los recursos que se piden en este curso.
 
-**PASOS**
+**PASOS**  
 - Entra en la consola de AWS y abre CloudShell (icono >_).
 - Espera a que cargue la terminal. Ahora puedes escribir comandos Linux o aws ... directamente (ya estás autenticado).
 - Crea un archivo con nano. Los archivos de tu carpeta home quedarán guardados para la próxima sesión.
