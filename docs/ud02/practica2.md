@@ -29,14 +29,14 @@ No vamos a utilizar el par de claves del laboratorio, sino **crear un par de cla
 
 ## Práctica 3
 
-### Creación de una Máquina Linux desde la CLI
+### Creación de una Máquina Linux desde CloudShell
 
 Ahora que ya hemos practicado con el entorno gráfico, vamos a comenzar a utilizar la terminal. Para ello, tenemos dos opciones:
 
 - Utilizar **aws CLI** cuya instalación está explicada en el tema 1 de este curso. Debemos configurar las credenciales en el archivo `credentials` para poder estar conectados con el lab.  
 - Utilizar **CloudShell**
 
-**Diferencia clave:** dónde se ejecuta y quién gestiona el entorno.
+La **diferencia clave** entre ambos entornos es dónde se ejecuta y quién gestiona el entorno.
 
 | Aspecto | AWS CLI | CloudShell |
 |---|---|---|
@@ -47,7 +47,8 @@ Ahora que ya hemos practicado con el entorno gráfico, vamos a comenzar a utiliz
 | Acceso | Desde cualquier terminal tuya | Solo desde la consola web de AWS |
 | Uso típico | Automatización, scripts locales, CI/CD | Pruebas rápidas, administración puntual |
 
-**Resumen:** AWS CLI es tu herramienta local y permanente; CloudShell es una terminal basada en linux lista para usar dentro de AWS sin configurar nada.
+!!! note "Resumen"
+    AWS CLI es tu herramienta local y permanente; CloudShell es una terminal basada en linux lista para usar dentro de AWS sin configurar nada.
 
 
 En esta práctica vamos a hacer un script utilizando CloudShell para crear una máquina virtual con los valores por defecto mediante el [comando `aws ec2 run-instances`](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html) .
@@ -57,39 +58,37 @@ En esta práctica vamos a hacer un script utilizando CloudShell para crear una m
 
     Recuerda que como usuario de aws academy debes utilizar la región **us-east-1** que te permite crear los recursos que se piden en este curso.
 
-**PASOS**  
-- Entra en la consola de AWS y abre CloudShell (icono >_).
+**PASOS**
+
+- Entra en la consola de AWS y abre CloudShell (icono `>_`).
+
 - Espera a que cargue la terminal. Ahora puedes escribir comandos Linux o aws ... directamente (ya estás autenticado).
-- Crea un archivo con nano. Los archivos de tu carpeta home quedarán guardados para la próxima sesión.
 
-Crearemos un fichero de script con el siguiente comando:
+- Crea un archivo con nano. Los archivos de tu carpeta `home` quedarán guardados para la próxima sesión. Crearemos un fichero de script (por ejemplo `CreaEC2.sh`) con el siguiente comando:
 
-    ```
-    aws ec2 run-instances \
-    --image-id ami-0b09ffb6d8b58ca91 \
-    --count 1 \
-    --instance-type m1.small \
-    --key-name vockey \
-    --region us-east-1    
-    ```
+```
+aws ec2 run-instances \
+--image-id ami-0b09ffb6d8b58ca91 \
+--count 1 \
+--instance-type m1.small \
+--key-name vockey \
+--region us-east-1    
+```
 
-- guarda
+- Una vez guardado, damos permiso de ejecución: `chmod a+x CreaEC2.sh`
 
-Una vez guardado, damos permiso de ejecución  
-chmod +x nombrearchivo.sh  
-y lo ejecutamos anteponiendo `./` al nombre del script
-./nombrearchivo.sh
+- Lo ejecutamos anteponiendo `./` al nombre del script: `./CreaEC2.sh`
 
 Al ejecutarlo, el comando nos devuelve una cadena *json* con información relativa a la instancia creada, pero no nos aparece ni la IP Pública ni el nombre DNS Público asignados.
 
-Para poder ver dicha información y así poder conectarnos mediante ssh, ejecutamos el comando `aws ec2 describe-instances` y filtramos la información de salida para que nos aparezca la palabra `PublicIpAddress`. En este caso **no vamos a conectarnos por SSH** pues en el script sería necesario abrir el puerto 22 en el grupo de seguridad. Lo veremos en el siguiente tema.
+Para poder ver dicha información, y así poder conectarnos mediante ssh, ejecutamos el comando `aws ec2 describe-instances` y filtramos la información de salida para que nos aparezca la palabra `PublicIpAddress`. En este caso **no vamos a conectarnos por SSH** pues en el script sería necesario abrir el puerto 22 en el grupo de seguridad. Lo veremos en el siguiente tema.
 
 !!! success "Captura las pantallas"
     Captura las pantallas necesarias en la que se vea el comando de creación de la instancia.
 
 ## Práctica 4
 
-### Creación de una Máquina Linux desde la CLI
+### Creación de una Máquina Linux desde ClousShell
 
 Modifica el script de la práctica anterior para lanzar una nueva instancia cuyo tamaño sea `t2.micro`, la AMI sea una basada en Debian y el par de claves sea el creado en la práctica 2.
 
