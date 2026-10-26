@@ -27,6 +27,13 @@ nav:
   - "Proyectos 1ª Evaluación":
       - "Infraestructura segura de servidores": "pr01/pr01.md"
       - "VPC con Subredes y Base de datos RDS": "pr01/pr02.md"
+  - "Retos VPC y EC2": 
+      - "Enunciado": "retos/retos.md"
+      - "Retos":
+          - "Reto 1: La web de la empresa no carga": "retos/reto1.md"
+          - "Reto 2: El servidor de informes no tiene salida a Internet": "retos/reto2.md"
+          - "Reto 3: La aplicación no puede conectar con servicios externos seguros": "retos/reto3.md"
+          - "Reto 4: El servidor privado no puede actualizar ni instalar paquetes": "retos/reto4.md"
   - "UD05. Capa de Base de Datos":
       - "Capa de base de datos": "ud05/ud5.md"
       - "Práctica 1. Base de datos con acceso público": "ud05/bdpractica01.md"
