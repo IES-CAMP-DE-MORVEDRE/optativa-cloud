@@ -111,7 +111,7 @@ Para configurar los secretos nos vamos a la opción de configuración del reposi
 
 5.- Si todo ha ido bien, podemos entrar en el repositorio y modificar el fichero `index.html` para que automáticamente se haga el despliegue en el bucket S3 y así poder acceder a la url pública:
 
-- Estando en el código del repositorio (`<> Code`) pulsa la tecla `.` (punto) para que se abra el editor web de GitHub.
+- Estando en el código del repositorio (`<> Code`) pulsa la tecla `.` (punto) para que se abra el editor web de GitHub (si no funciona el atajo de teclado edita la url en la barra de direcciones del navegador y sustituye `github.com` por `github.dev`).
 - Modifica el fichero `index.html` para que donde ponga **IES Camp de Morvedre** ponga tu nombre.
 - En la barra de tareas de la izquierda pulsa sobre el botón de **Control de Código Fuente** (el tercero) y haz un commit indicando un mensaje.
 - Al cabo de unos minutos se habrá actualizado el bucket.
