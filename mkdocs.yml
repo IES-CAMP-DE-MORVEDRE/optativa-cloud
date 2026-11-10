@@ -27,6 +27,7 @@ nav:
   - "Proyectos 1ª Evaluación":
       - "Infraestructura segura de servidores": "pr01/pr01.md"
       - "VPC con Subredes y Base de datos RDS": "pr01/pr02.md"
+      - "Proyecto web dinámica": "pr03/pr03.md"
   - "Retos VPC y EC2": 
       - "Enunciado": "retos/retos.md"
       - "Retos":
